@@ -1,0 +1,96 @@
+.. _vegetation:
+
+2D Sky Maps and Vegetation Modelization
+########################################
+
+As we have seen, we can easily cover large areas by multiplying a single
+object, such as a person to make a crowd or a tree to make a forest.
+There are more than `1400 trees to choose
+from <https://3dwarehouse.sketchup.com/search.html?q=3d+trees&rsi=sbis&backendClass=entity>`__\ in
+the 3D Warehouse, you really have a large choice. So are all SketchUp
+trees the same? What types are there and how do they affect the results
+of our visibility studies? Let's take two concrete examples.
+
+First Tree : the FaceMe Tree
+============================
+
+If you're familiar with Sketchup, you may know about
+the \ `faceMe <https://blog.sketchup.com/sketchupdate/making-your-own-face-me-people>`__ technique.
+Basically, a 2D Object is set to automatically turn to always face your
+camera, no matter which way you look at it (unless you look from above).
+
+.. figure:: https://t4su.files.wordpress.com/2016/10/tree-1.png
+   :class: alignnone size-full wp-image-2087
+   :width: 562px
+   :height: 754px
+
+Second Tree : the Carboard Cutout
+=================================
+
+The Cardboard Cutout also uses the faceMe method for it's vertical face,
+but also has an added horizontal face.
+
+.. figure:: https://t4su.files.wordpress.com/2016/10/tree-2.png
+   :class: alignnone size-full wp-image-2088
+   :width: 614px
+   :height: 732px
+
+Comparison :
+============
+
+Let's now compare the impact these two different trees would have on our
+visibility studies. For starters, are the sky maps the same? If they're
+not, what else would that change? To find out, import both types of
+trees into different layers, and place them at identical spots. To make
+sure we compare the same points in space, we can create a path, sample it and
+project the sampling points over our terrain. We can then launch a 2D
+Sky
+Map \ Batchprocess over
+our sampled path twice ; once for each tree layer type. 
+
+.. figure:: https://t4su.files.wordpress.com/2016/10/tree-result-1.png
+   :class: alignnone size-full wp-image-2088
+   :width: 614px
+   :height: 732px
+
+   Sky view Factor with Tree 1.
+
+.. figure:: https://t4su.files.wordpress.com/2016/10/tree-result-2.png
+   :class: alignnone size-full wp-image-2088
+   :width: 614px
+   :height: 732px
+
+   Sky view Factor with Tree 2.
+
+.. figure:: https://t4su.files.wordpress.com/2016/10/tree-comparison.png
+   :class: alignnone size-full wp-image-2088
+   :width: 614px
+   :height: 732px
+
+   Comparison of Both Sky view Factors.
+
+
+Clearly, trees composed of only
+a vertical face allow for a much greater sky view factor. In this
+particular case, a greater sky view also means greater direct solar
+radiation.
+
+.. seealso::
+    :ref:`sampling-a-path`
+
+    :ref:`batchprocess`
+
+Conclusion:
+===========
+
+Choosing the correct type of tree is very important : they're part of
+every urban setting and need to be taken into account when analysing
+urban energy balances. Vegetation's correct integration in such
+simulations is still at its premise, mainly because their modelization
+induces calculating variable opacity over many complex shapes.
+Comparatively, this SketchUp method may not be as precise as other
+microclimatic models, but it's definitely much faster. In any case, it's
+vital to know what type of geometries we're working with and anticipate
+the types of problems that could be encountered, whether it be a 2D, 2D+
+or 3D tree model.
+
