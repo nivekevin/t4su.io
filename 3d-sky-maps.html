@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 3D Sky Maps &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="3. ﻿3D Sky Maps and Building Facades" href="3d-sky-maps-and-building-facades.html"/>
+        <link rel="prev" title="1. 2D Sky Maps and Vegetation Modelization" href="2030.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2030.html">1. 2D Sky Maps and Vegetation Modelization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 3D Sky Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-a-3d-sky-map">2.1. What&#8217;s a 3D Sky Map ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-create-3d-sky-maps">2.2. How do I create 3D Sky Maps?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-can-i-use-them-for">2.3. What Can I Use Them For?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3d-sky-maps-and-building-facades.html">3. ﻿3D Sky Maps and Building Facades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">4. Welcome to T4SU’s Doc Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#installing-t4su-linux">5. Installing T4SU (Linux)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#installing-t4su-windows">6. Installing T4SU (Windows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#installing-t4su-through-the-console">7. Installing T4SU (through the console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">8. T4SU Ruby API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculating-the-sky-view-factor-in-an-urban-setting.html">9. Calculating the Sky View Factor in an Urban Setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking-the-normal-vector-of-your-geometries.html">10. ﻿Checking the Normal Vector of your Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-partial-2d-isovists.html">11. ﻿Creating Partial 2D Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-point-samples-of-your-buildings.html">12. ﻿Creating Point and Face Samples of your Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">13. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">14. ﻿Extruding Heights from your Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-install-it-through-the-console.html">15. ﻿Installing T4SU through the Ruby console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">16. Installing T4SU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation-procedure-under-linux.html">17. Installation Procedure under Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">18. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projecting-along-the-z-axis.html">19. Projecting Along the Z Axis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ray-casting-an-introduction-to-visibility-studies.html">20. Ray Casting : an Introduction to Visibility Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recreating-a-terrain-with-contour-lines.html">21. ﻿Recreating a Terrain with Contour Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-times-and-geometrical-precision.html">22. ﻿Running Times and Geometrical Precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-a-path.html">23. Sampling A Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">24. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-the-bounding-box.html">25. ﻿Sampling the Bounding box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting-geometries.html">26. ﻿Selecting Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-view-factors-and-sun-paths.html">27. ﻿Joining 2D Sky Maps and Sun Paths with SunnySkyMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specific-sky-paths.html">28. ﻿Specific Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sun-view-factors.html">29. ﻿Sun View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-science-behind-iso.html">30. The Science Behind : Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-science-behind-skyvf.html">31. The Science Behind : Sky View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-science-behind-solar.html">32. The Science Behind : Solar Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="triangulating-geometries-with-gmsh.html">33. Triangulating Geometries with Gmsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="urban-nocturnal-lighting.html">34. Urban Nocturnal Lighting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-buffers-as-visual-information.html">35. ﻿Using Buffers as Visual Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewing-direct-solar-irradiation-along-a-path.html">36. ﻿Viewing Direct Solar Irradiation along a Path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizing-building-height-differences.html">37. Visualizing Building Height Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-an-isovist.html">38. ﻿What is an isovist ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-batchprocessing.html">39. ﻿What is BatchProcessing?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. 3D Sky Maps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/3d-sky-maps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d-sky-maps">
+<span id="id1"></span><h1>2. 3D Sky Maps<a class="headerlink" href="#d-sky-maps" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-s-a-3d-sky-map">
+<h2>2.1. What&#8217;s a 3D Sky Map ?<a class="headerlink" href="#what-s-a-3d-sky-map" title="Permalink to this headline">¶</a></h2>
+<p>Sky Maps are exactly what they&#8217;re named after : maps of the visible sky.
+Remember Ray Casting? Sky Maps work in a similar fashion : as rays are sent from a point of origin, they either reach the sky vault or they don&#8217;t :&nbsp;Sky maps only take into account the rays that do reach the sky. It&#8217;s the &#8220;opposite of BuildingFacade&#8221;.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="3d-sky-maps-and-building-facades.html#d-sky-maps-and-building-facades"><span class="std std-ref">﻿3D Sky Maps and Building Facades</span></a></p>
+<p class="last"><a class="reference internal" href="ray-casting-an-introduction-to-visibility-studies.html#ray-casting"><span class="std std-ref">Ray Casting : an Introduction to Visibility Studies</span></a></p>
+</div>
+<p>Let&#8217;s imagine for starters that we&#8217;re at a point on a completely flat
+surface, without anything blocking our view. Our result would be
+something like this :</p>
+<div class="figure">
+<a class="alignnone size-full wp-image-2192 reference internal image-reference" href="https://t4su.files.wordpress.com/2016/10/raycast3dsm.png"><img alt="https://t4su.files.wordpress.com/2016/10/raycast3dsm.png" class="alignnone size-full wp-image-2192" src="https://t4su.files.wordpress.com/2016/10/raycast3dsm.png" style="width: 528px; height: 406px;" /></a>
+</div>
+<p>Of course in an urban setting, some of our rays would be blocked, and the associated dome faces would not appear :</p>
+<div class="figure">
+<a class="alignnone size-full wp-image-2200 reference internal image-reference" href="https://t4su.files.wordpress.com/2016/10/raycast3dsm-wall.png"><img alt="https://t4su.files.wordpress.com/2016/10/raycast3dsm-wall.png" class="alignnone size-full wp-image-2200" src="https://t4su.files.wordpress.com/2016/10/raycast3dsm-wall.png" style="width: 836px; height: 664px;" /></a>
+</div>
+</div>
+<div class="section" id="how-do-i-create-3d-sky-maps">
+<h2>2.2. How do I create 3D Sky Maps?<a class="headerlink" href="#how-do-i-create-3d-sky-maps" title="Permalink to this headline">¶</a></h2>
+<p>You can place 3D Isovists through the point-and-click method by
+clicking&nbsp;<strong>t4su &gt; Sky views &gt; 3D Sky Map</strong>, or through a
+BatchProcess&nbsp;if
+you already have your locations set out.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="what-is-batchprocessing.html#batchprocess"><span class="std std-ref">﻿What is BatchProcessing?</span></a></p>
+</div>
+</div>
+<div class="section" id="what-can-i-use-them-for">
+<h2>2.3. What Can I Use Them For?<a class="headerlink" href="#what-can-i-use-them-for" title="Permalink to this headline">¶</a></h2>
+<p>On their own and at a first glance, theses domes help you assess the
+openness of an area, the local skyline and roughly estimate&nbsp;the sky view
+factor. But they hold much more interesting information when used, for
+example, to assess solar radiation. As we&#8217;ve
+seen, we have methods to calculate the Sun View Factor after having drawn Sun
+Paths.
+What happens when we reproduce this procedure on our 3D Sky Maps ? To
+try this out, first create your domes, then click&nbsp;<strong>t4su &gt; Edit &gt;
+AutomaticReverseFaces</strong> because half of your dome&#8217;s faces are facing
+inwards. Then proceed to draw your Sun Paths and calculate your Sun View
+Factor over the layer containing your 3D Sky Maps. Finally, use
+ColorFaces to depict the differences in energy received by each face :</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="sun-view-factors.html#sun-view-factors"><span class="std std-ref">﻿Sun View Factors</span></a></p>
+<p class="last"><a class="reference internal" href="drawing-sun-paths.html#drawing-sun-paths"><span class="std std-ref">﻿Drawing Sun Paths</span></a></p>
+</div>
+<div class="figure" id="id4">
+<a class="alignnone size-full wp-image-2242 reference internal image-reference" href="https://t4su.files.wordpress.com/2016/10/3dsm-and-sunvf.png"><img alt="https://t4su.files.wordpress.com/2016/10/3dsm-and-sunvf.png" class="alignnone size-full wp-image-2242" src="https://t4su.files.wordpress.com/2016/10/3dsm-and-sunvf.png" style="width: 893px; height: 852px;" /></a>
+<p class="caption"><span class="caption-text">3D Sky Maps Created by Point-And-Click, Colored by&nbsp;Direct Solar Irradiation Value</span></p>
+</div>
+<p>We can see a lot more information at
+particular points in space than when doing a regular <a href="#id2"><span class="problematic" id="id3">`</span></a>SunViewFactor over
+a tesselated
+area:</p>
+<div class="figure">
+<a class="alignnone size-full wp-image-2242 reference internal image-reference" href="https://t4su.files.wordpress.com/2016/10/numminwinter.png"><img alt="https://t4su.files.wordpress.com/2016/10/numminwinter.png" class="alignnone size-full wp-image-2242" src="https://t4su.files.wordpress.com/2016/10/numminwinter.png" style="width: 893px; height: 852px;" /></a>
+</div>
+<p>we can see what parts of the sky contribute most (and least) to our
+direct solar irradiation. Naturally, North-facing faces receive the
+least sunlight, and Southern faces at a roughly 45° vertical angle
+receive the most. We can thus find which sections of the sky contribute
+most to the points&#8217; solar energy gains.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3d-sky-maps-and-building-facades.html" class="btn btn-neutral float-right" title="3. ﻿3D Sky Maps and Building Facades" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2030.html" class="btn btn-neutral" title="1. 2D Sky Maps and Vegetation Modelization" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire CRENAU/AAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
