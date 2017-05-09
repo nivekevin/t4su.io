@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. Ray Casting and Isovists &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="9. Sky Maps" href="sky-maps.html"/>
+        <link rel="prev" title="7. ﻿Drawing Sun Paths" href="drawing-sun-paths.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Ray Casting and Isovists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-science-behind-isovists">8.1. The Science Behind : Isovists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-short-history">8.1.1. A Short History</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ray-casting-an-introduction-to-visibility-studies">8.2. Ray Casting : an Introduction to Visibility Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-an-isovist">8.3. ﻿What is an isovist ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-partial-2d-isovists">8.4. ﻿Creating Partial 2D Isovists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-isovists-and-hedgehogs">8.5. 3D Isovists and Hedgehogs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. Ray Casting and Isovists</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/2d-visibility-studies.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ray-casting-and-isovists">
+<h1>8. Ray Casting and Isovists<a class="headerlink" href="#ray-casting-and-isovists" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-science-behind-isovists">
+<span id="science-behind-iso"></span><h2>8.1. The Science Behind : Isovists<a class="headerlink" href="#the-science-behind-isovists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-short-history">
+<h3>8.1.1. A Short History<a class="headerlink" href="#a-short-history" title="Permalink to this headline">¶</a></h3>
+<p>Although isovists are considered to have been first set in theory by Benedikt in 1979 <a class="footnote-reference" href="#id7" id="id1">[1]</a> (a first mention of them was made by the same author in 1977 <a class="footnote-reference" href="#id8" id="id2">[2]</a>), their first appearance in scientific litterature was a paper by Tandy <a class="footnote-reference" href="#id9" id="id3">[3]</a>, itself based on writings from on AC Hardy <a class="footnote-reference" href="#id10" id="id4">[4]</a>. This concept sprouted from JJ Gibson&#8217;s work <a class="footnote-reference" href="#id11" id="id5">[5]</a> on &#8220;optic arrays&#8221;. Benedikt and Burnham <a class="footnote-reference" href="#id12" id="id6">[6]</a> give a good explanation of the difference between optic rays and isovists :</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Imagine a rectangle (representing a room) and the space within it. Draw a straight line between two points on the rectangle; draw another, and another, until the space of the rectangle is effectively filled with criss-crossing lines between all pairs of points. Now chose an point within the rectangle and you find that a large number of lines pass through that point, one of which is shared with another different set of lines passing through a point nearby. If we consider these lines to represent light rays (i.e., photon streams) of varying wavelength and intensity scattered and bounced by the edges of the rectagle (i.e., the walls of the room), then you have an optic array - a set of rays that pass through the point of interest.
+But where does the otic ray start and end? Is a ray that happens to pass through our point the same ray that it was before it bounced off the wall? If it is, then almost every ray in the room qualifies as belonging to our optic array, as it would eventually pass through our point. Clearly this isn&#8217;t going to work. The solution lies in concidering a ray only after its &#8220;last bounce&#8221;, that is, in concidering only the set of lines &#8211; rays &#8211; joining our point to the nearest light-scattering surface in every direction. Now, the isovist is simply this optic array, with wavelength and intensity information omitted.</dd>
+</dl>
+<p>In other words,</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>To every bearing (omega, phi) from a point of observation x in the world there corresponds a distance l, from the point to the nearest surface such that we have a unique ordered set</dd>
+</dl>
+<p>Several equations derived from isovists and isovist fields (that is, when caculating the isovist for each point in space), mainly from it&#8217;s perimeter and area, which an be discretized. We can produce a number of morphological indicators from isovists, including :</p>
+<ul class="simple">
+<li>Mean Depth</li>
+<li>Compactness fields</li>
+<li>Occlusivity, occlusivity fields</li>
+<li>Visible Perimeter Fields</li>
+</ul>
+<p>Isovist Moments can be derived into three types :</p>
+<p>M1 represents represents the derivation from the mean of the perimeter&#8217;s distance to x.
+M2 represented the derivation from the variance of the perimeter&#8217;s distance to x.
+M3 represents the derivation from the skewness of the perimeter&#8217;s distance to x. This last formulae can be used to find areas which can see well but</p>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>ML Benedikt, 1979, &#8220;To Take Hold of Space : Isovists and Isovist Fields&#8221;, Environment and Planning B, vol 6, pp. 46 - 65</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>ML Benedikt, 1977, &#8220;Path-dependence and position-dependence in isovist fields&#8221;, research report for the Council of Advanced Transportation Studies, University of Texas Austin, Austin, Texas.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Tandy, 1966</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>University of Newcastle, unpublished</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Lynch 1976</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Gallagher, 1972</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[7]</td><td>1966, The Ecological Approach to Visual Perception, Psychology Press Classic Editions</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[8]</td><td>Perceiving architectural space</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ray-casting-an-introduction-to-visibility-studies">
+<span id="ray-casting"></span><h2>8.2. Ray Casting : an Introduction to Visibility Studies<a class="headerlink" href="#ray-casting-an-introduction-to-visibility-studies" title="Permalink to this headline">¶</a></h2>
+<p>Ray Casting involves choosing&nbsp;a point in your urban space, from which
+rays will spread at equal distance from each other. The ray stops when
+it hits either&nbsp;an obstacle or its set limit. It is the simplest and
+quickest way to assess visibility, but&nbsp;doesn&#8217;t give as much information
+as isovists or hedgehog. First off, click on&nbsp;<strong>Extensions &gt; t4su &gt;
+Visibility studies &gt; RayCasting.&nbsp;</strong>A<strong>&nbsp;</strong>command box will appear,
+giving you the following possibilities:</p>
+<div class="figure" id="id15">
+<img alt="_images/raycasting-box.png" class="size-full aligncenter" src="_images/raycasting-box.png" />
+<p class="caption"><span class="caption-text">Ray Casting Command Box</span></p>
+</div>
+<ul class="simple">
+<li>Choose the number of rays. This will affect the results&#8217; precision,
+but taking the maximum isn&#8217;t necessarily better : if you select a
+small visible range, you may not need too many rays.</li>
+<li>The visual range is the maximum length of the rays ; any obstacle
+after said range will not be picked up during the process</li>
+<li>Set the height (z0 value). If you&#8217;re using ray casting for visibility
+purposes, keep a z-value around eye-level.</li>
+<li>Make sure the units you are working with are correct.</li>
+<li>Finally, you can choose to cast rays in a 2D or 3D space. This is
+entirely up to the type of information you want to collect. If you
+are only interested in street visibility and do not need information
+on the impact of building heights for example, a 2D Ray Casting is
+much more legible and should suffice.</li>
+</ul>
+<p>Once you have click&nbsp;<strong>OK</strong>, you can click anywhere on your map to cast
+your rays, as many times as you need (you do not need to repeat the
+procedure to plot a second RayCast).</p>
+<div class="figure" id="id16">
+<a class="size-full aligncenter reference internal image-reference" href="_images/raycasting-result256-40.png"><img alt="_images/raycasting-result256-40.png" class="size-full aligncenter" src="_images/raycasting-result256-40.png" style="width: 356.0px; height: 274.0px;" /></a>
+<p class="caption"><span class="caption-text">2D Ray Casting with 256 rays at a distance of 40m</span></p>
+</div>
+<div class="figure" id="id17">
+<a class="size-full aligncenter reference internal image-reference" href="_images/raycasting-result-1024-150.png"><img alt="_images/raycasting-result-1024-150.png" class="size-full aligncenter" src="_images/raycasting-result-1024-150.png" style="width: 175.0px; height: 254.0px;" /></a>
+<p class="caption"><span class="caption-text">2D Ray Casting with 1024 rays at a distance of 150m</span></p>
+</div>
+<p>If you are not interested in the rays
+themselves, but rather the point of impact they share with the facades
+of your buildings, check out CloudOfPoints.</p>
+</div>
+<div class="section" id="what-is-an-isovist">
+<span id="what-is-isovist"></span><h2>8.3. ﻿What is an isovist ?<a class="headerlink" href="#what-is-an-isovist" title="Permalink to this headline">¶</a></h2>
+<p>Isovists represent the entirety of the visible plain (in 2D) or volume
+(in 3D) at a specific point in space, bounded by the built environment.
+Because isovists are built upon a point,&nbsp;the associated form&nbsp;changes as
+it is displaced, just as our notion of urban space changes as we walk
+through it.&nbsp;They are frequently used in many fields of visibility
+studies : wireless network design, landscape management and analysis,
+pedestrian access or security.</p>
+<div class="figure" id="id18">
+<img alt="_images/what-is-isovist-2.png" class="aligncenter" src="_images/what-is-isovist-2.png" />
+<p class="caption"><span class="caption-text">Isovist at a Point Close to the Cathedral.</span></p>
+</div>
+<div class="figure" id="id19">
+<a class="aligncenter reference internal image-reference" href="_images/what-is-isovist-1.png"><img alt="_images/what-is-isovist-1.png" class="aligncenter" src="_images/what-is-isovist-1.png" style="width: 493.2px; height: 269.1px;" /></a>
+<p class="caption"><span class="caption-text">Isovist at an Other Point in Space.</span></p>
+</div>
+<p>So how are isovists built? Originating from our point of origin (<strong>view point</strong>), rays are cast into the open space, up to a certain arbitrary distance (<strong>view limit</strong>). The resulting&nbsp;points of impact between each ray and its
+barriers (either obstacles or the view limit) are joined to form the
+<strong>isovist&#8217;s edge</strong>. The rays are then replaced by an <strong>isovist area</strong>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#ray-casting"><span class="std std-ref">Ray Casting : an Introduction to Visibility Studies</span></a></p>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/what-is-isovist-ray-cast.png"><img alt="_images/what-is-isovist-ray-cast.png" class="aligncenter" src="_images/what-is-isovist-ray-cast.png" style="width: 323.20000000000005px; height: 418.40000000000003px;" /></a>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/iso-propre.png"><img alt="_images/iso-propre.png" class="aligncenter" src="_images/iso-propre.png" style="width: 249.60000000000002px; height: 381.6px;" /></a>
+</div>
+<p>Isovists can also be used to study a space&#8217;s
+<a class="reference external" href="http://www.spacesyntax.net/symposia-archive/SSS1/SpSx%201st%20Symposium%2097%20-2003%20pdf/1st%20Symposium%20Vol%20III%20pdf/40%20Peponis%20pdfW.pdf">convexity</a>,
+that is, a region for which every pair of points in said region can be
+linked by a straight line also within the region. Here is a simple
+example of convex and non-convex spaces:</p>
+<div class="figure" id="id20">
+<a class="aligncenter reference internal image-reference" href="_images/convex-space2.png"><img alt="_images/convex-space2.png" class="aligncenter" src="_images/convex-space2.png" style="width: 208.0px; height: 345.0px;" /></a>
+<p class="caption"><span class="caption-text">In a Convex Space, Isovists have the Same Shape no Matter the Location of the View Point</span></p>
+</div>
+<div class="figure" id="id21">
+<a class="aligncenter reference internal image-reference" href="_images/non-convex-both-isovists.png"><img alt="_images/non-convex-both-isovists.png" class="aligncenter" src="_images/non-convex-both-isovists.png" style="width: 120.0px; height: 172.5px;" /></a>
+<p class="caption"><span class="caption-text">In a Non-Convex (Concave) Space, more than one Isovist is Needed to Map the Totality of the Area.</span></p>
+</div>
+<p>We can notice the&nbsp;link
+between ray casting and isovist formation when playing with its precision.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="for-starters.html#running-times"><span class="std std-ref">﻿Running Times and Geometrical Precision</span></a></p>
+</div>
+</div>
+<div class="section" id="creating-partial-2d-isovists">
+<span id="p2diso"></span><h2>8.4. ﻿Creating Partial 2D Isovists<a class="headerlink" href="#creating-partial-2d-isovists" title="Permalink to this headline">¶</a></h2>
+<p>Partial isovists are isovists that are constrained by a certain
+aperture. You can automate their process using BatchProcess, or set your
+positions and orientation manually by clicking <strong>Extensions &gt; t4su
+&gt;&nbsp;Visibility Studies &gt; PIsovist 2D</strong>. If you&#8217;re using the manual method,
+you will be redirected to the&nbsp;<strong>Partial Isovist Command Box.</strong></p>
+<p>First,&nbsp;import &nbsp;a linear geometry (ie: made of lines or multilines) into your Layers, or draw one yourself using the Line Tool.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="loading-shapefiles-into-sketchup.html#loading-data"><span class="std std-ref">﻿Loading your data into SketchUp</span></a></p>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/import-polyline.png"><img alt="_images/import-polyline.png" class="aligncenter" src="_images/import-polyline.png" style="width: 456.0px; height: 418.0px;" /></a>
+</div>
+<p>Next, you&#8217;ll want to sample your
+pathway,
+then use&nbsp;a Batch
+Process.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="sampling-methods.html#sampling-a-path"><span class="std std-ref">Sampling A Path</span></a></p>
+<p class="last"><a class="reference internal" href="for-starters.html#batchprocess"><span class="std std-ref">﻿Batch Processing</span></a></p>
+</div>
+<p>Select <strong>PIsovist2D</strong> (which stands for Partial 2D Isovist) in the
+<strong>Process to apply</strong> and select the correct layer (starting with
+SamplePathway[...] if you&#8217;ve created your points through sampling).
+Finally, select <strong>Sketchup::ConstructionPoint</strong> as Geometry type.</p>
+<p>If don&#8217;t want to use a Batch Process or would rather select the points manually,you can do so too. Simply <strong>click to set the point of origin and drag to set the orientation</strong> of your partial isovists.</p>
+<p>Whether you&#8217;re plotting manually or automatically, you will have to fill
+in this command box :</p>
+<div class="figure">
+<img alt="_images/p2d-iso-box1.png" class="aligncenter" src="_images/p2d-iso-box1.png" />
+</div>
+<ul class="simple">
+<li>Select the aperture of your circular sectors (ie: how wide you wish
+the isovist to be)</li>
+<li>Select the number of rays :&nbsp;a higher number will give a more precise
+outline, but a lower number will greatly accelerate computation time.
+For example, setting the aperture to 30 and the number of rays to 60
+will result in a ray&nbsp;every 0.5 degrees.</li>
+<li>Select ray length. Some trial-and-error may be needed to adjust this
+parameter : too short, they may not cover enough ground. Too long
+will result in confusing overlapping geometries and longer
+computation times.</li>
+<li>Setting the z0 value allows you to decide at which height the partial
+isovists are calculated. By default, they are at 1m60, an average
+person&#8217;s eye-height.</li>
+<li>You may also change the appearance of the isovists : transparency
+(from 0 to 1, 1 being the most opaque) as well as the color.</li>
+<li>When you are&nbsp;ready, click&nbsp;<strong>OK</strong></li>
+</ul>
+<p>What do we see ?</p>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/p2d-iso-result1.png"><img alt="_images/p2d-iso-result1.png" class="aligncenter" src="_images/p2d-iso-result1.png" style="width: 451.0px; height: 430.0px;" /></a>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/p2d-iso-result2.png"><img alt="_images/p2d-iso-result2.png" class="aligncenter" src="_images/p2d-iso-result2.png" style="width: 427.0px; height: 419.0px;" /></a>
+</div>
+<p>The partial isovists are&nbsp;constrained by the extruded building
+geometries. Their profile mimics our visibility as we advance along the
+path we have decided upon. We can notice the gradual enlargement of the
+isovist as we advance towards an plaza or an intersection.</p>
+</div>
+<div class="section" id="d-isovists-and-hedgehogs">
+<h2>8.5. 3D Isovists and Hedgehogs<a class="headerlink" href="#d-isovists-and-hedgehogs" title="Permalink to this headline">¶</a></h2>
+<p>Like 2D Isovists, 3D Isovists and hedgehogs use ray casting to map the surrounding urban space. Unlike it&#8217;s 2D counterpart though, 3D Isovists will only output assembled rays that effectively touch a surface.</p>
+<div class="figure" id="id22">
+<a class="reference internal image-reference" href="_images/inputbox_isovist3d.png"><img alt="_images/inputbox_isovist3d.png" src="_images/inputbox_isovist3d.png" style="width: 304.8px; height: 260.8px;" /></a>
+<p class="caption"><span class="caption-text">Isovist Command Box</span></p>
+</div>
+<p>When creating these 3D objects, you will have to decide whether to draw &#8220;tetrahedra or spots&#8221; (or both). By choosing tetrahedra, the cast rays are drawn, set in a group and shown. Spots on the other hand, draw out the surfaces visible from our point of interest (i.e., the faces&#8217; areas touched by the tetrahedra).</p>
+<div class="figure" id="id23">
+<a class="reference internal image-reference" href="_images/3disov-spots.png"><img alt="_images/3disov-spots.png" src="_images/3disov-spots.png" style="width: 308.0px; height: 195.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Isovist, Spots Only</span></p>
+</div>
+<div class="figure" id="id24">
+<a class="reference internal image-reference" href="_images/3disov-tetraspots.png"><img alt="_images/3disov-tetraspots.png" src="_images/3disov-tetraspots.png" style="width: 308.0px; height: 236.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Isovist, Spots and Tetrahedra</span></p>
+</div>
+<p>The surfaces are created by a minimum of three points, meaning if only two rays reach a surface, that surface will not be taken into account in the Isovist/Hedgehog rendering. You will also get the following error:</p>
+<p>The difference between a hedgehog and a 3D isovist lies in whether or not these batches of three rays form individual tetrahedra/spots, or are assembled into one. Here&#8217;s an illustration of a Hedgehog result: compare it with the Isovist result above (resolution was slightly lowered).</p>
+<div class="figure" id="id25">
+<a class="reference internal image-reference" href="_images/hedgehog1.png"><img alt="_images/hedgehog1.png" src="_images/hedgehog1.png" style="width: 308.0px; height: 193.0px;" /></a>
+<p class="caption"><span class="caption-text">Hedgehog Result, Spots Only.</span></p>
+</div>
+<p>As with many other features, it is possible to run a batchprocess of 3D isovists. In this last example, the cathedral building wall faces were selected and sampled into points. The following result allows us to know which building facades have a potential view of any side of the cathedral.</p>
+<div class="figure" id="id26">
+<a class="reference internal image-reference" href="_images/isov3d-royalgraslin1.png"><img alt="_images/isov3d-royalgraslin1.png" src="_images/isov3d-royalgraslin1.png" style="width: 308.0px; height: 260.0px;" /></a>
+<p class="caption"><span class="caption-text">Building Facades with Direct View  of the Cathedral</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sky-maps.html" class="btn btn-neutral float-right" title="9. Sky Maps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drawing-sun-paths.html" class="btn btn-neutral" title="7. ﻿Drawing Sun Paths" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

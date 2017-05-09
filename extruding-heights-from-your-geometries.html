@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Preparing Your Data &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="5. General Tips to Start" href="for-starters.html"/>
+        <link rel="prev" title="3. ﻿Loading your data into SketchUp" href="loading-shapefiles-into-sketchup.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Preparing Your Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extruding-heights-from-your-geometries">4.1. ﻿Extruding Heights from your Geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-the-normal-vector-of-your-geometries">4.2. ﻿Checking the Normal Vector of your Geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recreating-a-terrain-with-contour-lines">4.3. Recreating a Terrain with Contour Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projecting-along-the-z-axis">4.4. Projecting Along the Z Axis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Preparing Your Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/extruding-heights-from-your-geometries.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="preparing-your-data">
+<span id="prep"></span><h1>4. Preparing Your Data<a class="headerlink" href="#preparing-your-data" title="Permalink to this headline">¶</a></h1>
+<p>Learn to pre-process your geometries before performing any analysis.</p>
+<div class="section" id="extruding-heights-from-your-geometries">
+<span id="extrude-path"></span><h2>4.1. ﻿Extruding Heights from your Geometries<a class="headerlink" href="#extruding-heights-from-your-geometries" title="Permalink to this headline">¶</a></h2>
+<p>Once you have&nbsp;loaded your
+data,
+it will appear on your screen as well as in your Layers. The geometries are, for now, flat. To analyse our data, we must first extrude the geometries to their corresponding heights.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="loading-shapefiles-into-sketchup.html#loading-data"><span class="std std-ref">﻿Loading your data into SketchUp</span></a></p>
+</div>
+<p>To do this, click&nbsp;<strong>Extensions &gt; t4su &gt; Edit &gt; FootprintExtruder</strong></p>
+<div class="figure">
+<img alt="_images/footprint-extruder.png" class="aligncenter" src="_images/footprint-extruder.png" />
+</div>
+<p>A new window will open, asking for the attribute&#8217;s name. Select the name of the column where your heights are stored.</p>
+<div class="figure">
+<img alt="_images/extruding1.png" class="size-medium aligncenter" src="_images/extruding1.png" />
+</div>
+<p>If you are not sure which column it is, open your file in an external application and check.&nbsp;Here is an example of a WellKnown-Text file : the attribute&nbsp;we are looking for is named &#8220;elevation:double&#8221;.</p>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/cathedral-wkt.png"><img alt="_images/cathedral-wkt.png" class="aligncenter" src="_images/cathedral-wkt.png" style="width: 434.0px; height: 366.0px;" /></a>
+</div>
+<p>Select whether you would like the geometries to be extruded Upwards (Z direction) or Downwards (-Z direction) and click&nbsp;<strong>Okay</strong>.</p>
+<div class="figure" id="id3">
+<a class="aligncenter reference internal image-reference" href="_images/extruding-downwards-result1.png"><img alt="_images/extruding-downwards-result1.png" class="aligncenter" src="_images/extruding-downwards-result1.png" style="width: 756.0px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-text">Top Image : The imported geometries are rooftops. Bottom Image : Rooftops have been extruded downwards to create buildings</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you do not select a specific object, the extrusion will be carried over&nbsp;all geometries. You may also select specific geometries before extruding, in which case only the selected figures will be affected by the extrusion.</p>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/extrudingone.png"><img alt="_images/extrudingone.png" class="aligncenter" src="_images/extrudingone.png" style="width: 643.5px; height: 363.5px;" /></a>
+</div>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/extrudingall.png"><img alt="_images/extrudingall.png" class="aligncenter" src="_images/extrudingall.png" style="width: 649.5px; height: 372.5px;" /></a>
+</div>
+</div>
+<div class="section" id="checking-the-normal-vector-of-your-geometries">
+<span id="normal-vector"></span><h2>4.2. ﻿Checking the Normal Vector of your Geometries<a class="headerlink" href="#checking-the-normal-vector-of-your-geometries" title="Permalink to this headline">¶</a></h2>
+<p>For any&nbsp;simulation to run smoothly, you&nbsp;must make sure that all of
+your&nbsp;two-dimensional geometries face&nbsp;the correct direction.</p>
+<p>To check this, just click&nbsp;<strong>Extensions &gt; t4su &gt; View &gt; PlotAllNormals</strong>. The following box will appear. Select the correct
+layer name, and size of the vectors :</p>
+<div class="figure" id="id4">
+<a class="size-medium wp-image-314 aligncenter reference internal image-reference" href="_images/normal_box.png"><img alt="_images/normal_box.png" class="size-medium wp-image-314 aligncenter" src="_images/normal_box.png" style="width: 186.0px; height: 112.0px;" /></a>
+<p class="caption"><span class="caption-text">Checking Normals Comand Box</span></p>
+</div>
+<p>Once you click&nbsp;<strong>OK</strong>, a new layer will be created resembling this
+screenshot:</p>
+<div class="figure" id="id5">
+<a class="aligncenter reference internal image-reference" href="_images/normal-not-good.png"><img alt="_images/normal-not-good.png" class="aligncenter" src="_images/normal-not-good.png" style="width: 461.0px; height: 234.0px;" /></a>
+<p class="caption"><span class="caption-text">Incorectly Positioned Normal Vectors.</span></p>
+</div>
+<p>As you can notice, one of the geometries is facing the wrong way. Let&#8217;s
+change that :</p>
+<ul class="simple">
+<li>select&nbsp;the faces you wish to reverse</li>
+<li>click on&nbsp;<strong>Extensions &gt; t4su &gt; Edit &gt; ReverseFaces</strong></li>
+</ul>
+<div class="figure">
+<img alt="_images/reverting-normals.png" class="size-full wp-image-123 aligncenter" src="_images/reverting-normals.png" />
+</div>
+<ul class="simple">
+<li>Delete&nbsp;the obsolete PlotAllNormals layer</li>
+<li>Repeat <strong>Extensions &gt; t4su &gt; View &gt; PlotAllNormals&nbsp;</strong>to see if
+everything worked.</li>
+</ul>
+</div>
+<div class="section" id="recreating-a-terrain-with-contour-lines">
+<span id="contour-lines"></span><h2>4.3. Recreating a Terrain with Contour Lines<a class="headerlink" href="#recreating-a-terrain-with-contour-lines" title="Permalink to this headline">¶</a></h2>
+<p>On many topographical maps, altitude levels are frequently represented
+by contour lines, or &#8220;isohypes&#8221; : lines representing equal elevation. We
+can turn these isolines into a usable digital terrain model. Start
+by&nbsp;importing&nbsp;your
+lines.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<blockquote>
+<div><a class="reference internal" href="loading-shapefiles-into-sketchup.html#loading-data"><span class="std std-ref">﻿Loading your data into SketchUp</span></a></div></blockquote>
+<p class="last">This case has an <strong>extra step during the import</strong>&nbsp;<strong>process</strong></p>
+</div>
+<p>: click on&nbsp;<strong>Options..&nbsp;</strong>and&nbsp;change the&nbsp;<strong>Build group(s) of entities</strong> line&nbsp;to &#8220;<strong>No group&#8221;</strong>.</p>
+<div class="figure">
+<img alt="_images/import-isolines.png" class="aligncenter size-full" src="_images/import-isolines.png" />
+</div>
+<p>Next, select everything <strong>(Ctrl+A)</strong>&nbsp;and click on&nbsp;<strong>Draw &gt;&nbsp;Sandbox &gt; From Contours.</strong> If when selected, your geometries appear individually bounded by selections boxes, it means you&#8217;ve forgotten to import them as&nbsp;<strong>No Group</strong>. Instead of re-importing your geometries, you can <strong>right-click</strong> on your selected geometries, then hit <strong>Explode</strong>.</p>
+<div class="figure" id="id6">
+<a class="aligncenter reference internal image-reference" href="_images/isolines-get.png"><img alt="_images/isolines-get.png" class="aligncenter" src="_images/isolines-get.png" style="width: 227.0px; height: 269.0px;" /></a>
+<p class="caption"><span class="caption-text">Correct importation of isolines.</span></p>
+</div>
+<div class="figure" id="id7">
+<a class="aligncenter reference internal image-reference" href="_images/isocontours-bad.png"><img alt="_images/isocontours-bad.png" class="aligncenter" src="_images/isocontours-bad.png" style="width: 201.0px; height: 229.5px;" /></a>
+<p class="caption"><span class="caption-text">Incorrect importation of isolines.</span></p>
+</div>
+<p>You should end up with a layer that resembles this:</p>
+<div class="figure" id="id8">
+<a class="aligncenter reference internal image-reference" href="_images/isolines-filled.png"><img alt="_images/isolines-filled.png" class="aligncenter" src="_images/isolines-filled.png" style="width: 276.5px; height: 156.0px;" /></a>
+<p class="caption"><span class="caption-text">Simplified TIN Model.</span></p>
+</div>
+<p>Visibility, including sky view factors, changes on a rough terrain: our sky view is much more restrained at the bottom of a valley than at the top of a hill. Adding precise altitudes to your map will greatly aid in the accuracy&nbsp;of your calculations.</p>
+<div class="figure" id="id9">
+<a class="aligncenter reference internal image-reference" href="_images/isocontours-2d-skyview.png"><img alt="_images/isocontours-2d-skyview.png" class="aligncenter" src="_images/isocontours-2d-skyview.png" style="width: 525.0px; height: 226.0px;" /></a>
+<p class="caption"><span class="caption-text">Close-up of three &#8220;2D Sky-Maps&#8221; on a rough terrain : areas in dips and valleys &#8220;see&#8221; less of the the sky than the tops of hills.</span></p>
+</div>
+</div>
+<div class="section" id="projecting-along-the-z-axis">
+<span id="proj"></span><h2>4.4. Projecting Along the Z Axis<a class="headerlink" href="#projecting-along-the-z-axis" title="Permalink to this headline">¶</a></h2>
+<p>Projecting along the Z-axis is really helpful in plotting many objects,
+like trees or people, on a uneven terrain. The concepts is pretty
+straightforward : we first import or create a layer of points, then
+project them on our target surfaces. This technique also works for line
+segments. So first, import your uneven ground layer and the layers to be
+projected:</p>
+<div class="figure" id="id10">
+<img alt="_images/initial-trees.png" class="aligncenter" src="_images/initial-trees.png" />
+<p class="caption"><span class="caption-text">Rough Terrain Layer above a Layer Representing Wooded Areas.</span></p>
+</div>
+<p>Below our ground layer, we can see
+another set of geometries&nbsp;which correspond in this case to forested
+areas. That is the layer to perform a <a href="#id1"><span class="problematic" id="id2">`</span></a>point
+sample on.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="sampling-methods.html#building-sampling"><span class="std std-ref">Creating Point and Face Samples of your Buildings</span></a></p>
+</div>
+<p>Once you have your points, you can delete the previous layer : we&#8217;ll
+only be needing the points from now on. Hit <strong>t4su &gt; Edit &gt;
+ProjectAlongZAxis.&nbsp;</strong></p>
+<div class="figure" id="id11">
+<img alt="_images/zaxis-trees.png" class="aligncenter" src="_images/zaxis-trees.png" />
+<p class="caption"><span class="caption-text">The &#8220;Wooded Area&#8221; Faces are Sampled into Points, which are then Projected onto our Terrain Layer.</span></p>
+</div>
+<p>Once
+the command box appears, select the layer containing your sampling
+points.&nbsp;Next, decide&nbsp;which direction to&nbsp;give to the projection : you may
+choose between&nbsp;<strong>upwards&nbsp;</strong>and&nbsp;<strong>downwards</strong>. Since our points
+were created from a layer&nbsp;<em>below our ground layer</em>, we are going
+to&nbsp;<strong>project upwards</strong>. If of course, your point layer is situated
+above the ground layer, chose&nbsp;<strong>downwards projection</strong>. This will
+result in your points &#8220;travelling&#8221; in the Z direction until they hit a
+face (in our case, the ground face). &nbsp;We can then use the projected
+sampling points&nbsp;as locations for&nbsp;more complex
+geometries.</p>
+<div class="figure" id="id12">
+<img alt="_images/final-trees.png" class="aligncenter" src="_images/final-trees.png" />
+<p class="caption"><span class="caption-text">Example of the Use of Z-Axis Projection</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="sky-maps.html#vegetation"><span class="std std-ref">2D Sky Maps and Vegetation Modelization</span></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="for-starters.html" class="btn btn-neutral float-right" title="5. General Tips to Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="loading-shapefiles-into-sketchup.html" class="btn btn-neutral" title="3. ﻿Loading your data into SketchUp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

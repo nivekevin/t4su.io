@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. ﻿Drawing Sun Paths &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="8. Ray Casting and Isovists" href="2d-visibility-studies.html"/>
+        <link rel="prev" title="6. ﻿Sampling Methods" href="sampling-methods.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. ﻿Drawing Sun Paths</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-paths-of-points">7.1. Drawing Paths of Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geode-sun-paths">7.2. Geode Sun Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specific-sun-paths">7.3. ﻿Specific Sun Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>7. ﻿Drawing Sun Paths</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/drawing-sun-paths.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="drawing-sun-paths">
+<span id="id1"></span><h1>7. ﻿Drawing Sun Paths<a class="headerlink" href="#drawing-sun-paths" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="drawing-paths-of-points">
+<h2>7.1. Drawing Paths of Points<a class="headerlink" href="#drawing-paths-of-points" title="Permalink to this headline">¶</a></h2>
+<p>Tools4SketchUp offers very different possibilities than the built-in
+Shadow feature or other plugins available.</p>
+<p>The first step in your solar analysis should be to set the location of
+your project, as well as setting the time-period for your analysis. This
+will be automatically translated into the appropriate Sun Paths.</p>
+<p>First, click on <strong>Extensions &gt; t4su &gt; Sun views &gt; SunPath :</strong></p>
+<div class="figure">
+<img alt="_images/sunpath-get.png" class="aligncenter" src="_images/sunpath-get.png" />
+</div>
+<p>The next window allows you to enter the necessary information for the
+creation of sun paths :</p>
+<ul class="simple">
+<li>Set the correct latitude.</li>
+<li>Set the start date and time</li>
+<li>Set the end date and time</li>
+</ul>
+<p>It is sometimes practical to select dates that are of special interest
+for solar paths such as the solstices : the 21st of June and 21st of
+December represent the highest and lowest paths of the year,
+respectively.</p>
+<ul class="simple">
+<li>The daily sun path is a continuous line in the sky, which is here
+represented by a series of points. You can therefore decide on the
+interval of time (in minutes) at which the position of the sun is
+saved.</li>
+<li>If your start and end dates are not on the same day, you will have a
+series of sun paths. If you don&#8217;t wish to trace a path for every
+single day, you can change this parameter : setting &#8220;2&#8221; will trace
+one path every two days. Setting &#8220;30&#8221; will trace a path roughly every
+month.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="_images/sunpath-box.png" class="aligncenter" src="_images/sunpath-box.png" />
+<p class="caption"><span class="caption-text">Sun Path Command Box</span></p>
+</div>
+<p>Once your sun paths have been traced and placed in a Layer, as well as
+triangulated your
+geometries,
+you will be ready to run analyses such as Sun View Factor.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="sampling-methods.html#triangle"><span class="std std-ref">Triangulating Geometries with Gmsh</span></a></p>
+</div>
+<div class="figure" id="id4">
+<img alt="_images/sunpath-result-21-09.png" class="aligncenter" src="_images/sunpath-result-21-09.png" />
+<p class="caption"><span class="caption-text">Sun Path Result for the 21st of September</span></p>
+</div>
+<div class="figure" id="id5">
+<img alt="_images/sunpath-box2.png" class="aligncenter" src="_images/sunpath-box2.png" />
+<p class="caption"><span class="caption-text">Setting Sun Paths from September 21st to Ocober 21st every two days, plotting every 10 minutes.</span></p>
+</div>
+<div class="figure" id="id6">
+<img alt="_images/sunpath-result-21-09-21-10.png" class="aligncenter" src="_images/sunpath-result-21-09-21-10.png" />
+<p class="caption"><span class="caption-text">Resulting Solar Paths from September 21st to October 21st.</span></p>
+</div>
+<div class="figure" id="id7">
+<img alt="_images/sunpath-result-year.png" class="aligncenter" src="_images/sunpath-result-year.png" />
+<p class="caption"><span class="caption-text">Resulting Solar Paths from the 21st of June to the 21st of December, every 90 days, with 5-minute intervals.</span></p>
+</div>
+</div>
+<div class="section" id="geode-sun-paths">
+<h2>7.2. Geode Sun Paths<a class="headerlink" href="#geode-sun-paths" title="Permalink to this headline">¶</a></h2>
+<p>Once you’ve  drawn your Sun Paths, you may realize your calculation times for Sun View Factors are too much to handle. There is a way to drastically reduce time, but it come at the price of precision : Geode Sun Paths.</p>
+<div class="figure" id="id8">
+<img alt="_images/geodsunpath-get.png" src="_images/geodsunpath-get.png" />
+<p class="caption"><span class="caption-text">Reaching the Geode Sun Path</span></p>
+</div>
+<div class="figure" id="id9">
+<img alt="_images/geodsunpath-box.png" src="_images/geodsunpath-box.png" />
+<p class="caption"><span class="caption-text">Geode Sun Path Command Box</span></p>
+</div>
+<p>The “sun points”, representing the location of the sun at a specific time, travel over a sky vault. By intersecting our sun path points with the sky vault, we can find which facets of the sky could replace our sun path.
+geodsunpath-isoca-resulthigh-nb-patches
+Geode Sun Path with very high resolution : as each face is allocated to only one point, calculation times may stay similar but precision will be lost</p>
+<div class="figure" id="id10">
+<img alt="_images/geodsunpath-geode-result.png" src="_images/geodsunpath-geode-result.png" />
+<p class="caption"><span class="caption-text">Geode Sun Path : each face covering multiple points, reducing calculation time</span></p>
+</div>
+<p>You can use the Geode Sun Path for processes such as the Sun View Factor. In that case, the center of each face is taken into account : the bigger the tessellation and the further away their center is from the original sun path, the less precises the model become.</p>
+<p>Here is an exaggerated view of the problem (the model has been designed to maximize the discrepancy) :</p>
+<div class="figure" id="id11">
+<img alt="_images/dsi-geodepath.png" src="_images/dsi-geodepath.png" />
+<p class="caption"><span class="caption-text">Gedoe Sun Path result : 83.4 seconds.</span></p>
+</div>
+<div class="figure" id="id12">
+<img alt="_images/dsi-pointpath.png" src="_images/dsi-pointpath.png" />
+<p class="caption"><span class="caption-text">Point Sun Path : 346 seconds</span></p>
+</div>
+</div>
+<div class="section" id="specific-sun-paths">
+<span id="id2"></span><h2>7.3. ﻿Specific Sun Paths<a class="headerlink" href="#specific-sun-paths" title="Permalink to this headline">¶</a></h2>
+<p>Now that we&#8217;ve seen how to create sun
+paths, you may want to study solar radiation&nbsp;during specific time periods.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#drawing-sun-paths"><span class="std std-ref">﻿Drawing Sun Paths</span></a></p>
+</div>
+<p>You can, for example, decide to only plot for specific hours. Here is an
+example for plotting the sun&#8217;s position at noon once a month:</p>
+<p>The input goes as such :</p>
+<ul class="simple">
+<li>Set the start date at 21/06 (summer solstice)</li>
+<li>set your start time at 12:00 (noon)</li>
+<li>set the end date to 21/12 (winter solstice)</li>
+<li>leave the end time at 23:59</li>
+<li>Set the time slice per day to 1440 (24hours)</li>
+<li>Set the time slice between dates to 30.</li>
+</ul>
+<div class="figure" id="id13">
+<img alt="_images/solar-path-noon-year.png" class="size-full aligncenter" src="_images/solar-path-noon-year.png" />
+<p class="caption"><span class="caption-text">Position of the Sun at Noon every 21st, from June to December at 24.7° latitude.</span></p>
+</div>
+<p>You may also want to have a more precise idea of the course o the sun
+through the entire year.&nbsp;Here is the appropriate input&nbsp;:</p>
+<ul class="simple">
+<li>Set the start date at 21/06 (summer solstice)</li>
+<li>Set your start time at 00:00</li>
+<li>Set the end date to 21/12 (winter solstice)</li>
+<li>Leave the end time at 23:59</li>
+<li>Set the time slice per day to&nbsp;10 minutes</li>
+<li>Set the time slice between dates to 30.</li>
+</ul>
+<div class="figure" id="id14">
+<img alt="_images/solar-path-10m-year.png" class="size-full aligncenter" src="_images/solar-path-10m-year.png" />
+<p class="caption"><span class="caption-text">Daily Sun Paths every&nbsp;21st, from June until&nbsp;December, 10-minute intervals.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2d-visibility-studies.html" class="btn btn-neutral float-right" title="8. Ray Casting and Isovists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sampling-methods.html" class="btn btn-neutral" title="6. ﻿Sampling Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

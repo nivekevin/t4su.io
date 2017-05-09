@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. ﻿Sampling Methods &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="7. ﻿Drawing Sun Paths" href="drawing-sun-paths.html"/>
+        <link rel="prev" title="5. General Tips to Start" href="for-starters.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. ﻿Sampling Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sampling-the-bounding-box">6.1. ﻿Sampling the Bounding box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-point-and-face-samples-of-your-buildings">6.2. Creating Point and Face Samples of your Buildings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sampling-a-path">6.3. Sampling A Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triangulating-geometries-with-gmsh">6.4. Triangulating Geometries with Gmsh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6. ﻿Sampling Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sampling-methods.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sampling-methods">
+<span id="id1"></span><h1>6. ﻿Sampling Methods<a class="headerlink" href="#sampling-methods" title="Permalink to this headline">¶</a></h1>
+<p>T4su offers a four&nbsp;ways to sample your geometries. Sampling is
+very&nbsp;useful whenever a phenomena may be better studied with&nbsp;spatial
+discretization. whether they be flat surfaces or lines. They can be
+found by clicking&nbsp;<strong>Extensions &gt; t4su &gt; Edit :</strong></p>
+<div class="section" id="sampling-the-bounding-box">
+<span id="sampling-bounding-box"></span><h2>6.1. ﻿Sampling the Bounding box<a class="headerlink" href="#sampling-the-bounding-box" title="Permalink to this headline">¶</a></h2>
+<p>As with lines and geometries, the &#8220;ground floor&#8221; of your SketchUp can also be sampled into points or faces.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#sampling-methods"><span class="std std-ref">﻿Sampling Methods</span></a></p>
+</div>
+<p>Start by clicking&nbsp;<strong>Extensions &gt; t4su &gt; Edit &gt; SampleBBoxArea.</strong></p>
+<div class="figure" id="id3">
+<img alt="_images/bbox-sampling-box.png" class="aligncenter" src="_images/bbox-sampling-box.png" />
+<p class="caption"><span class="caption-text">Sample BBox Command Box</span></p>
+</div>
+<ul class="simple">
+<li>Set the X sampling distance : that is the direction of the red line
+in Sketchup. The &#8220;(less than [...m])&#8221; gives you an information on how
+large the bounding box will be.</li>
+<li>Set the Y sampling distance : that is the length of the sample in the
+direction of the green line.</li>
+<li>You can set the z0 value. You may want to change this for several
+reasons: if you are studying at which intersections a driver would be
+directly blinded by the incoming sunlight, it would be best to set
+the z-value at eye-level when sitting down. If you are looking at how
+much direct sunlight hits the ground, setting a z0 value to 0 or 0.1
+is more appropriate.</li>
+<li>You can select your unit length, which should not change throughout
+your project, and be in concordance with your original SketchUp
+model.</li>
+<li>The &#8220;<strong>Sample into</strong>&#8221; is very important:<ul>
+<li>If you select <strong>SketchUp::ConstructionPoint</strong>, points will be
+created.&nbsp;In this case, X and Y distances represent the distance
+between points (every Xmeters in the &#8220;red direction&#8221;, every Y
+meters in the &#8220;green direction&#8221;).</li>
+<li>If you select&nbsp;<strong>SketchUp::Face</strong>, rectangles or squares will be
+created. In this case, X and Y distances represent the length of
+the sides of the sampling area.</li>
+</ul>
+</li>
+<li>Finally, selecting&nbsp;<strong>indoor or outdoor&nbsp;</strong>will sample either the
+area inside of your geometries (indoor) exclusively, or use the
+building faces as a limit to sample only the outside area
+(outdoor).&nbsp;If you choose&nbsp;<strong>both</strong>, the bounding box will be evenly
+discretized, ignoring any limits set by your buildings/geometries.</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="view-factors.html#calc-svf"><span class="std std-ref">Calculating the Sky View Factor</span></a></p>
+<p class="last"><a class="reference internal" href="view-factors.html#sun-view-factors"><span class="std std-ref">﻿Sun View Factors</span></a></p>
+</div>
+<div class="figure" id="id4">
+<a class="aligncenter reference internal image-reference" href="_images/boundingbbox-result-2.png"><img alt="_images/boundingbbox-result-2.png" class="aligncenter" src="_images/boundingbbox-result-2.png" style="width: 525.0px; height: 380.0px;" /></a>
+<p class="caption"><span class="caption-text">Up-facing view with sampling distances X and Y at 1m</span></p>
+</div>
+</div>
+<div class="section" id="creating-point-and-face-samples-of-your-buildings">
+<span id="building-sampling"></span><h2>6.2. Creating Point and Face Samples of your Buildings<a class="headerlink" href="#creating-point-and-face-samples-of-your-buildings" title="Permalink to this headline">¶</a></h2>
+<p>As we have seen&nbsp;in previous posts, we can sample a line or your bounding box into points or faces.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="#sampling-methods"><span class="std std-ref">﻿Sampling Methods</span></a></p>
+<p><a class="reference internal" href="2d-visibility-studies.html#p2diso"><span class="std std-ref">﻿Creating Partial 2D Isovists</span></a></p>
+<p class="last"><a class="reference internal" href="#sampling-bounding-box"><span class="std std-ref">﻿Sampling the Bounding box</span></a></p>
+</div>
+<p>We can perform the same type of task on your geometry
+faces. Here is how :</p>
+<ul class="simple">
+<li>Click&nbsp;<strong>Extensions &gt; t4su &gt; Edit &gt; SampleFacesAreas</strong></li>
+</ul>
+<p>You will be asked to fill in the following command box:</p>
+<div class="figure" id="id5">
+<img alt="_images/samplefacesarea-box.png" class="aligncenter" src="_images/samplefacesarea-box.png" />
+<p class="caption"><span class="caption-text">SampleFaces Command Box</span></p>
+<div class="legend">
+<ul class="simple">
+<li>Select the layer to sample.</li>
+<li>Select the sampling distance : unlike&nbsp;<strong>SampleBBoxArea</strong>, &nbsp;you
+only have one sampling distance : you can only create squares, or
+points separated by an equal distance in both (X and Y)
+directions.</li>
+<li>Select your unit length</li>
+<li>You can also select the&nbsp;<strong>distance to face</strong>. Similar to the z0
+value, the distance is calculated as the normal to the surface.
+Setting a small distance (eg:0.1) is helpful in avoiding pesky
+overlapping sketchup geometries.</li>
+<li>Again, you can choose to create points or faces. This really
+depends on what information you wish to visualize over the
+discretized space.</li>
+</ul>
+</div>
+</div>
+<p>Here are two examples of the difference between Sample Points and Sample
+Faces, both&nbsp;with a 5.0m precision and 0,1m distance from the original
+geometries.</p>
+<div class="figure" id="id6">
+<a class="aligncenter reference internal image-reference" href="_images/samplefacesarea-result.png"><img alt="_images/samplefacesarea-result.png" class="aligncenter" src="_images/samplefacesarea-result.png" style="width: 712.0px; height: 313.0px;" /></a>
+<p class="caption"><span class="caption-text">Result of Face Sampling</span></p>
+</div>
+<div class="figure" id="id7">
+<a class="aligncenter reference internal image-reference" href="_images/samplefacesarea-result-2.png"><img alt="_images/samplefacesarea-result-2.png" class="aligncenter" src="_images/samplefacesarea-result-2.png" style="width: 718.5px; height: 308.0px;" /></a>
+<p class="caption"><span class="caption-text">Result of Point Smapling</span></p>
+</div>
+</div>
+<div class="section" id="sampling-a-path">
+<span id="id2"></span><h2>6.3. Sampling A Path<a class="headerlink" href="#sampling-a-path" title="Permalink to this headline">¶</a></h2>
+<p>As We&#8217;ve seen, sampling
+methods will grid your your area of study evenly through point or line sampling, whethere they be your bounding
+box, or your geometry faces.
+You can also perform this operation on line segments : the command box
+for SamplePathway is comparatively very simple :</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#sampling-methods"><span class="std std-ref">﻿Sampling Methods</span></a></p>
+</div>
+<div class="figure" id="id8">
+<a class="aligncenter reference internal image-reference" href="_images/linesample-box.png"><img alt="_images/linesample-box.png" class="aligncenter" src="_images/linesample-box.png" style="width: 268.75px; height: 33.75px;" /></a>
+<p class="caption"><span class="caption-text">&#8220;SamplePathway&#8221; Command Box</span></p>
+</div>
+<ul class="simple">
+<li>Select the layer containing your edge geometry.</li>
+<li>Set the sampling distance. Curvilinear is a fancy way to say we are
+leaving cartesian coordinates: the distance taken into account
+only&nbsp;follows the line segment, not the X/Y coordinates.&nbsp;If a line is
+10m long and &nbsp;is sampled every 3m, three points will be made along
+the line at the 3m, 6m, and 9m marks.</li>
+<li>Always keep the same&nbsp;unit length throughout&nbsp;of your project.</li>
+</ul>
+<p>You now have a new Layer called SamplePathWay_[original_file_name],
+containing points spread along your line.</p>
+<div class="figure" id="id9">
+<a class="aligncenter reference internal image-reference" href="_images/samplepath-result.png"><img alt="_images/samplepath-result.png" class="aligncenter" src="_images/samplepath-result.png" style="width: 119.0px; height: 258.0px;" /></a>
+<p class="caption"><span class="caption-text">Line Segment Sampled every 5m.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="for-starters.html#buffers"><span class="std std-ref">﻿Using Buffers as Visual Information</span></a></p>
+<p><a class="reference internal" href="2d-visibility-studies.html#p2diso"><span class="std std-ref">﻿Creating Partial 2D Isovists</span></a></p>
+<p class="last"><a class="reference internal" href="view-factors.html#viewing-dsi"><span class="std std-ref">﻿Viewing Direct Solar Irradiation along a Path</span></a></p>
+</div>
+</div>
+<div class="section" id="triangulating-geometries-with-gmsh">
+<span id="triangle"></span><h2>6.4. Triangulating Geometries with Gmsh<a class="headerlink" href="#triangulating-geometries-with-gmsh" title="Permalink to this headline">¶</a></h2>
+<p>Unlike other sampling
+methods which
+result in point samples, or quadrangular (square or rectangle)
+&nbsp;tessellations, Gmsh allows for a complete subdivision of your building
+geometries into triangles ; it creates smaller triangles where shapes
+are more variable, and larger ones on flatter surfaces.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#sampling-methods"><span class="std std-ref">﻿Sampling Methods</span></a></p>
+</div>
+<p>The first step of the process is to <a class="reference external" href="http://gmsh.info/#Download">download
+Gmsh</a>. Keep in mind where you decompress
+the .zip file ; you will need to copy/paste that location further on.</p>
+<div class="figure">
+<img alt="_images/gmsh-triangulator-whereis.png" class="aligncenter" src="_images/gmsh-triangulator-whereis.png" />
+</div>
+<p>Next, click on <strong>Extensions &gt; t4su &gt; Edit &gt;&nbsp; GmshTriangulator</strong></p>
+<div class="figure">
+<img alt="_images/gmsh-triangulator-get2.png" class="aligncenter" src="_images/gmsh-triangulator-get2.png" />
+</div>
+<p>The command box that follows allows you to connect Sketchup to Gmsh :</p>
+<div class="figure" id="id10">
+<img alt="_images/gmsh-triangulator-box2.png" class="aligncenter" src="_images/gmsh-triangulator-box2.png" />
+<p class="caption"><span class="caption-text">Gmsh Command Box (1)</span></p>
+</div>
+<ul class="simple">
+<li>Select the correct layer. In this example, we&#8217;ve previously selected
+a building in our layer, the triangulation will therefore be
+performed only on that specific geometry. If nothing is selected, the
+triangulation will be operated over the entirety of the layer.</li>
+<li>In the text box below, paste the location of wherever you extracted
+the Gmsh zipfile, and add&nbsp; \gmsh.exe to the end.</li>
+<li>The triangulation will be saved in a temp file, you can decide upon
+its location in the third text box.</li>
+<li>Finally and most importantly, select the default size for your
+triangles, though some will be much smaller depending on the actual
+shape of your building. You may be tempted to create very small
+triangles for better precision, but keep in mind this will have a
+great impact on computation times, especially once you use them to
+analyse Sun View Factors for example.</li>
+</ul>
+<p>The next window will tell you the number of triangles that were created.
+After clicking <strong>OK</strong>, A new window will appear that is very much like
+the one that appeared when you imported your geometry into Sketchup.
+Minimum and maximum x,y,z values express the recalibration of the
+coordinate system.</p>
+<div class="figure" id="id11">
+<img alt="_images/gmsh-triangulator-box3.png" class="aligncenter" src="_images/gmsh-triangulator-box3.png" />
+<p class="caption"><span class="caption-text">Gmsh Command Box (2)</span></p>
+</div>
+<p>Once you click <strong>OK</strong>, a new layer will be added, named as a series of
+numbers. Within it, you may find a copy of your original buildings whose
+faces have been triangulated.</p>
+<div class="figure" id="id12">
+<a class="aligncenter reference internal image-reference" href="_images/gmsh-triangulator-result.png"><img alt="_images/gmsh-triangulator-result.png" class="aligncenter" src="_images/gmsh-triangulator-result.png" style="width: 519.0px; height: 422.0px;" /></a>
+<p class="caption"><span class="caption-text">Building Triangulated with Gmsh.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="drawing-sun-paths.html" class="btn btn-neutral float-right" title="7. ﻿Drawing Sun Paths" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="for-starters.html" class="btn btn-neutral" title="5. General Tips to Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

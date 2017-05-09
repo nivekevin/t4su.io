@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Sky Maps &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="10. View Factors" href="view-factors.html"/>
+        <link rel="prev" title="8. Ray Casting and Isovists" href="2d-visibility-studies.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Sky Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#d-sky-maps">9.1. 3D Sky Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-a-3d-sky-map">9.1.1. What&#8217;s a 3D Sky Map ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-create-3d-sky-maps">9.1.2. How do I create 3D Sky Maps?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-can-i-use-them-for">9.1.3. What Can I Use Them For?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#d-sky-maps-and-building-facades">9.2. ﻿3D Sky Maps and Building Facades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-sky-maps-and-vegetation-modelization">9.3. 2D Sky Maps and Vegetation Modelization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-tree-the-faceme-tree">9.3.1. First Tree&nbsp;: the FaceMe Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#second-tree-the-carboard-cutout">9.3.2. Second Tree : the Carboard Cutout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison">9.3.3. Comparison :</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">9.3.4. Conclusion:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sunny-sky-maps">9.4. Sunny Sky Maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>9. Sky Maps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sky-maps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sky-maps">
+<span id="id1"></span><h1>9. Sky Maps<a class="headerlink" href="#sky-maps" title="Permalink to this headline">¶</a></h1>
+<p>Sky Maps are exactly what they&#8217;re named after : maps of the visible sky.
+Sky Maps work in a similar fashion as Ray Casting : as rays are sent from a point of origin, they either reach the sky vault or they don&#8217;t :&nbsp;Sky maps only take into account the rays that do reach the sky. They can be projected onto a dome, or reprojected onto a disc for a 3D or 2 visualization.</p>
+<div class="section" id="d-sky-maps">
+<span id="id2"></span><h2>9.1. 3D Sky Maps<a class="headerlink" href="#d-sky-maps" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="#d-sky-maps-and-building-facades"><span class="std std-ref">﻿3D Sky Maps and Building Facades</span></a></p>
+<p class="last"><a class="reference internal" href="2d-visibility-studies.html#ray-casting"><span class="std std-ref">Ray Casting : an Introduction to Visibility Studies</span></a></p>
+</div>
+<div class="section" id="what-s-a-3d-sky-map">
+<h3>9.1.1. What&#8217;s a 3D Sky Map ?<a class="headerlink" href="#what-s-a-3d-sky-map" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s imagine for starters that we&#8217;re at a point on a completely flat
+surface, without anything blocking our view. Our result would be
+something like this :</p>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/raycast3dsm.png"><img alt="_images/raycast3dsm.png" class="aligncenter" src="_images/raycast3dsm.png" style="width: 132.0px; height: 101.5px;" /></a>
+</div>
+<p>Of course in an urban setting, some of our rays would be blocked, and the associated dome faces would not appear :</p>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/raycast3dsm-wall.png"><img alt="_images/raycast3dsm-wall.png" class="aligncenter" src="_images/raycast3dsm-wall.png" style="width: 154.0px; height: 122.25px;" /></a>
+</div>
+</div>
+<div class="section" id="how-do-i-create-3d-sky-maps">
+<h3>9.1.2. How do I create 3D Sky Maps?<a class="headerlink" href="#how-do-i-create-3d-sky-maps" title="Permalink to this headline">¶</a></h3>
+<p>You can place 3D Isovists through the point-and-click method by
+clicking&nbsp;<strong>t4su &gt; Sky views &gt; 3D Sky Map</strong>, or through a
+BatchProcess&nbsp;if
+you already have your locations set out.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="for-starters.html#batchprocess"><span class="std std-ref">﻿Batch Processing</span></a></p>
+</div>
+</div>
+<div class="section" id="what-can-i-use-them-for">
+<h3>9.1.3. What Can I Use Them For?<a class="headerlink" href="#what-can-i-use-them-for" title="Permalink to this headline">¶</a></h3>
+<p>On their own and at a first glance, theses domes help you assess the
+openness of an area, the local skyline and roughly estimate&nbsp;the sky view
+factor. But they hold much more interesting information when used, for
+example, to assess solar radiation. As we&#8217;ve
+seen, we have methods to calculate the Sun View Factor after having drawn Sun
+Paths.
+What happens when we reproduce this procedure on our 3D Sky Maps ? To
+try this out, first create your domes, then click&nbsp;<strong>t4su &gt; Edit &gt;
+AutomaticReverseFaces</strong> because half of your dome&#8217;s faces are facing
+inwards. Then proceed to draw your Sun Paths and calculate your Sun View
+Factor over the layer containing your 3D Sky Maps. Finally, use
+ColorFaces to depict the differences in energy received by each face :</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="view-factors.html#sun-view-factors"><span class="std std-ref">﻿Sun View Factors</span></a></p>
+<p class="last"><a class="reference internal" href="drawing-sun-paths.html#drawing-sun-paths"><span class="std std-ref">﻿Drawing Sun Paths</span></a></p>
+</div>
+<div class="figure" id="id6">
+<a class="aligncenter size-full reference internal image-reference" href="_images/3dsm-and-sunvf.png"><img alt="_images/3dsm-and-sunvf.png" class="aligncenter size-full" src="_images/3dsm-and-sunvf.png" style="width: 204.0px; height: 194.75px;" /></a>
+<p class="caption"><span class="caption-text">3D Sky Maps Created by Point-And-Click, Colored by&nbsp;Direct Solar Irradiation Value</span></p>
+</div>
+<p>We can see a lot more information at
+particular points in space than when doing a regular <a href="#id3"><span class="problematic" id="id4">`</span></a>SunViewFactor over
+a tesselated area:</p>
+<div class="figure">
+<a class="aligncenter size-full reference internal image-reference" href="_images/numminwinter.png"><img alt="_images/numminwinter.png" class="aligncenter size-full" src="_images/numminwinter.png" style="width: 272.0px; height: 192.5px;" /></a>
+</div>
+<p>We can see what parts of the sky contribute most (and least) to our
+direct solar irradiation. Naturally, North-facing faces receive the
+least sunlight, and Southern faces at a roughly 45° vertical angle
+receive the most. We can thus find which sections of the sky contribute
+most to the points&#8217; solar energy gains.</p>
+</div>
+</div>
+<div class="section" id="d-sky-maps-and-building-facades">
+<span id="id5"></span><h2>9.2. ﻿3D Sky Maps and Building Facades<a class="headerlink" href="#d-sky-maps-and-building-facades" title="Permalink to this headline">¶</a></h2>
+<p>3D Sky Maps and Building Facades both start from
+a&nbsp;half-dome,
+at the center of which is the point of interest. Rays start from the
+center point, pass through the center of each dome face and continue on,
+either hitting a facade or not.</p>
+<div class="figure" id="id7">
+<a class="aligncenter reference internal image-reference" href="_images/skymap-3d-buildingfacade-result.png"><img alt="_images/skymap-3d-buildingfacade-result.png" class="aligncenter" src="_images/skymap-3d-buildingfacade-result.png" style="width: 310.5px; height: 254.0px;" /></a>
+<p class="caption"><span class="caption-text">A combination of SkyMap 3d (clear blue) and BuildingFacade (grey) at the same point in space</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="for-starters.html#running-times"><span class="std std-ref">﻿Running Times and Geometrical Precision</span></a></p>
+</div>
+<p>Whilst Building Facades will only show the dome faces who&#8217;s rays have
+hit an obstacle, 3D Sky Maps will only show those that have not :
+They&nbsp;show complementary information. So when is one or the other more
+appropriate?</p>
+<p>Sky maps are much more useful in showing which parts of the sky are
+visible at a certain&nbsp;point. They hold an advantage over 2D Sky Maps,in
+that the sky is not projected over a 2D surface:&nbsp;they are not deformed
+by any necessary&nbsp;spherical projection.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="view-factors.html#calc-svf"><span class="std std-ref">Calculating the Sky View Factor</span></a></p>
+</div>
+<div class="figure" id="id8">
+<a class="aligncenter reference internal image-reference" href="_images/skymap-3d-result.png"><img alt="_images/skymap-3d-result.png" class="aligncenter" src="_images/skymap-3d-result.png" style="width: 334.5px; height: 262.0px;" /></a>
+<p class="caption"><span class="caption-text">Sky-Map 3D over an intersection</span></p>
+</div>
+<div class="figure">
+<a class="aligncenter size-full reference internal image-reference" href="_images/skymap3d-ray-casting1.png"><img alt="_images/skymap3d-ray-casting1.png" class="aligncenter size-full" src="_images/skymap3d-ray-casting1.png" style="width: 180.0px; height: 112.5px;" /></a>
+</div>
+<p>The BuildingFacade module works great for street-level visibility : it
+highlights the skyline, the openings in the urban space represented by
+&#8220;dips&#8221; in the dome formation, allowing you&nbsp;to assess the relative
+confinement of urban space.</p>
+<div class="figure" id="id9">
+<a class="aligncenter reference internal image-reference" href="_images/buildingfacades-street.png"><img alt="_images/buildingfacades-street.png" class="aligncenter" src="_images/buildingfacades-street.png" style="width: 210.5px; height: 131.0px;" /></a>
+<p class="caption"><span class="caption-text">Typical BuildingFacade profile for a narrow street</span></p>
+</div>
+<p>Once built, the dome faces also hold an attribute,
+&#8220;dist_to_facade&#8221;(float). This&nbsp;feature expresses the distance between
+the point of interest and the obstacle represented by the dome face.</p>
+<div class="figure" id="id10">
+<img alt="_images/buildingfacade-rubyconsole.png" class="aligncenter" src="_images/buildingfacade-rubyconsole.png" />
+<p class="caption"><span class="caption-text">Ruby console showing attributes when using PickUpEntity</span></p>
+</div>
+<p>You can view it by clicking&nbsp;<strong>View &gt; ColorFaces&nbsp;</strong>and choosing the
+dist_to_facade attribute.</p>
+<div class="figure" id="id11">
+<a class="aligncenter reference internal image-reference" href="_images/buildingfacades-colorfaces-box.png"><img alt="_images/buildingfacades-colorfaces-box.png" class="aligncenter" src="_images/buildingfacades-colorfaces-box.png" style="width: 344.0px; height: 109.60000000000001px;" /></a>
+<p class="caption"><span class="caption-text">ColorFaces Command Box</span></p>
+</div>
+<p>Originally, the faces all turn inwards: the results may be more visible
+if the faces where reverted. This can be easily achieved by
+selecting&nbsp;<strong>Edit &gt; AutomaticReverseFaces</strong>, and selecting your
+BuildingFacade layer. Sometimes, intersecting faces&nbsp;are not
+automatically reversed. For an optimal result, render your building
+layer invisible before reversing your BuildingFacade layer.</p>
+</div>
+<div class="section" id="d-sky-maps-and-vegetation-modelization">
+<span id="vegetation"></span><h2>9.3. 2D Sky Maps and Vegetation Modelization<a class="headerlink" href="#d-sky-maps-and-vegetation-modelization" title="Permalink to this headline">¶</a></h2>
+<p>As we have seen, we can easily cover large areas by multiplying&nbsp;a single
+object, such as a person to make a crowd or a tree to make a forest.
+There are more than <a class="reference external" href="https://3dwarehouse.sketchup.com/search.html?q=3d+trees&amp;rsi=sbis&amp;backendClass=entity">1400 trees to choose
+from</a>in
+the 3D Warehouse, you really have a large choice. So are all SketchUp
+trees the same? What types are there and how&nbsp;do they affect the results
+of our visibility studies? Let&#8217;s take two concrete examples.</p>
+<div class="section" id="first-tree-the-faceme-tree">
+<h3>9.3.1. First Tree&nbsp;: the FaceMe Tree<a class="headerlink" href="#first-tree-the-faceme-tree" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re familiar with Sketchup, you may know about
+the&nbsp;<a class="reference external" href="https://blog.sketchup.com/sketchupdate/making-your-own-face-me-people">faceMe</a>&nbsp;technique.
+Basically, a 2D Object is set to automatically turn to always face your
+camera, no matter which way you look at it (unless you look from above).</p>
+<div class="figure">
+<a class="aligncenter size-full reference internal image-reference" href="_images/tree-1.png"><img alt="_images/tree-1.png" class="aligncenter size-full" src="_images/tree-1.png" style="width: 140.5px; height: 188.5px;" /></a>
+</div>
+</div>
+<div class="section" id="second-tree-the-carboard-cutout">
+<h3>9.3.2. Second Tree : the Carboard Cutout<a class="headerlink" href="#second-tree-the-carboard-cutout" title="Permalink to this headline">¶</a></h3>
+<p>The Cardboard Cutout also uses the faceMe method for it&#8217;s vertical face,
+but also has an added horizontal face.</p>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/tree-2.png"><img alt="_images/tree-2.png" class="aligncenter" src="_images/tree-2.png" style="width: 153.5px; height: 183.0px;" /></a>
+</div>
+</div>
+<div class="section" id="comparison">
+<h3>9.3.3. Comparison :<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s now compare the impact these two different trees would have on our
+visibility studies. For starters, are the sky maps the same? If they&#8217;re
+not, what else would that change? To find out, import both types of
+trees into different layers, and place them at identical spots. To make
+sure we compare the same points in space, we can create a path, sample it and
+project the sampling points over our terrain. We can then launch a 2D
+Sky
+Map&nbsp;Batchprocess&nbsp;over
+our sampled path twice ; once for each tree layer type.</p>
+<div class="figure" id="id12">
+<a class="aligncenter size-full reference internal image-reference" href="_images/tree-result-1.png"><img alt="_images/tree-result-1.png" class="aligncenter size-full" src="_images/tree-result-1.png" style="width: 373.5px; height: 195.0px;" /></a>
+<p class="caption"><span class="caption-text">Sky view Factor with Tree 1.</span></p>
+</div>
+<div class="figure" id="id13">
+<a class="aligncenter size-full reference internal image-reference" href="_images/tree-result-2.png"><img alt="_images/tree-result-2.png" class="aligncenter size-full" src="_images/tree-result-2.png" style="width: 371.5px; height: 215.5px;" /></a>
+<p class="caption"><span class="caption-text">Sky view Factor with Tree 2.</span></p>
+</div>
+<div class="figure" id="id14">
+<a class="aligncenter size-full reference internal image-reference" href="_images/tree-comparison.png"><img alt="_images/tree-comparison.png" class="aligncenter size-full" src="_images/tree-comparison.png" style="width: 356.0px; height: 179.0px;" /></a>
+<p class="caption"><span class="caption-text">Comparison of Both Sky View Factors.</span></p>
+</div>
+<p>Clearly, trees composed of only
+a vertical face allow for a much greater sky view factor. In this
+particular case, a greater sky view also means greater direct solar
+radiation.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="sampling-methods.html#sampling-a-path"><span class="std std-ref">Sampling A Path</span></a></p>
+<p class="last"><a class="reference internal" href="for-starters.html#batchprocess"><span class="std std-ref">﻿Batch Processing</span></a></p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h3>9.3.4. Conclusion:<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>Choosing the correct type of tree is very important : they&#8217;re part of
+every urban setting and need to be taken into account when analysing
+urban energy balances. Vegetation&#8217;s&nbsp;correct integration in such
+simulations is still at its premise, mainly because their&nbsp;modelization
+induces calculating variable opacity over many complex shapes.
+Comparatively, this SketchUp method may not be as precise as other
+microclimatic models, but it&#8217;s definitely much faster. In any case, it&#8217;s
+vital to know what type of geometries we&#8217;re working with and anticipate
+the types of problems that could be encountered, whether it be a 2D, 2D+
+or 3D tree model.</p>
+</div>
+</div>
+<div class="section" id="sunny-sky-maps">
+<h2>9.4. Sunny Sky Maps<a class="headerlink" href="#sunny-sky-maps" title="Permalink to this headline">¶</a></h2>
+<p>We can project given sun paths onto our 2d sky map. This allows us to quickly understand buildings&#8217; impact on solar availability at a point in space, over different periods of time.</p>
+<p>First, create the sun paths you wish to have on your sky view graph.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="drawing-sun-paths.html#drawing-sun-paths"><span class="std std-ref">﻿Drawing Sun Paths</span></a></p>
+</div>
+<p>In thisexample, we will be using&nbsp;the sun paths of Winter and Summer solstices,
+as well as an equinox, at a latitude of 47°. This allows us to see the
+range over an&nbsp;entire year.</p>
+<div class="figure" id="id15">
+<img alt="_images/sunpath-result-year.png" class="aligncenter" src="_images/sunpath-result-year.png" />
+<p class="caption"><span class="caption-text">Sun Paths during the Solstices in Nantes, France.</span></p>
+</div>
+<p>Next, click on&nbsp;<strong>Extensions &gt; Sun views &gt; SunnySkyMap2D&nbsp;</strong>:</p>
+<div class="figure" id="id16">
+<img alt="_images/sunysky-get.png" class="size-full aligncenter" src="_images/sunysky-get.png" />
+<p class="caption"><span class="caption-text">Reaching SunnySkyMap</span></p>
+</div>
+<p>In the following command box, first select the layer containing your sun
+path:</p>
+<div class="figure" id="id17">
+<img alt="_images/sunysky-box.png" class="size-full aligncenter" src="_images/sunysky-box.png" />
+<p class="caption"><span class="caption-text">SunnySkyMap Command Box</span></p>
+</div>
+<ul class="simple">
+<li>Enter the number of rays used for the calculation, ie: its precision
+in finding the contours of the surrounding buildings</li>
+<li>Set the visual range : this is the size of your graph. This depends
+your project and your personal preferences&nbsp;: the amount of space you
+have available to plot the graph, how far out you would like to zoom
+and still read it...</li>
+<li>&nbsp;Select the height at which you would like to calculate your sky view
+factor (z0). If you would like to visualize projections at ground
+floor, 0.0 or 0.1 are an acceptable inputs.</li>
+<li>Select your unit of length. Be sure to always keep the same units
+throughout the entirety of the project!</li>
+<li>Next, select the type of projection you would like to use. If you&#8217;re
+not sure which one fits your needs best, check <a class="reference external" href="https://www.uwgb.edu/dutchs/structge/sphproj.htm">this
+page</a>for more
+ample information.</li>
+<li>Finally, you can change the color of the building projections.</li>
+</ul>
+<p>Once you hit&nbsp;<strong>OK</strong>, you can start clicking anywhere on your project
+to insert an graph at that location.</p>
+<div class="figure" id="id18">
+<img alt="_images/different-sv2d-results.png" class="aligncenter" src="_images/different-sv2d-results.png" />
+<p class="caption"><span class="caption-text">From left to right : Stereographic, Orthogonal and Isoaire (Equal-Area) projections at the same location.</span></p>
+</div>
+<p>Reading such graphs are relatively simple. The disc represents a
+360-view of the sky: the ground floor is projected at the circumference,
+whereas the center of the disk is the point in the sky directly above it
+(what happens in between depends on your type of projection).&nbsp;The
+filled-in parts of the graph represent parts of the sky that are blocked
+off by obstacles.</p>
+<p>If a point of the Sun Path is contained in the filled in areas of the
+graph, it means that at that specific time and place the point you are
+studying is in the shade. Conversely, a sun path point that is not
+superimposed over a filled in area of the graph means there is direct
+sunlight at that specific time and place.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="view-factors.html" class="btn btn-neutral float-right" title="10. View Factors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2d-visibility-studies.html" class="btn btn-neutral" title="8. Ray Casting and Isovists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

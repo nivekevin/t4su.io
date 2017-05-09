@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. General Tips to Start &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="6. ﻿Sampling Methods" href="sampling-methods.html"/>
+        <link rel="prev" title="4. Preparing Your Data" href="extruding-heights-from-your-geometries.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. General Tips to Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selecting-geometries">5.1. ﻿Selecting Geometries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-selection-processes">5.1.1. Types of Selection Processes :</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-processing">5.2. ﻿Batch Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-times-and-geometrical-precision">5.3. ﻿Running Times and Geometrical Precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-buffers-as-visual-information">5.4. ﻿Using Buffers as Visual Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-example-of-data-visualization">5.5. Basic Example of Data Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>5. General Tips to Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/for-starters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-tips-to-start">
+<span id="tips"></span><h1>5. General Tips to Start<a class="headerlink" href="#general-tips-to-start" title="Permalink to this headline">¶</a></h1>
+<p>T4SU offers many features that allow for an automatic selection, modification, creation or visualization of information, for a fast and easy way to treat and analyse our data. Many of these techniques will be used again in examples throughout the manual.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="selecting-geometries">
+<span id="selecting"></span><h2>5.1. ﻿Selecting Geometries<a class="headerlink" href="#selecting-geometries" title="Permalink to this headline">¶</a></h2>
+<p>One of the many features of T4su is that it will automatically recognize
+selected objets when running a process over a layer, and will run that
+process only on the selection.&nbsp;So if you want to run a process on an
+entire layer, make sure to not have anything selected. The T4su
+extension includes a very extensive assortment of selection tools, each
+oriented towards a specific usage. You can find this collection when
+clicking&nbsp;<strong>Extensions &gt; Select</strong>. Regardless of the type of selection,
+you will have the same three&nbsp;<strong>post-process after selection</strong> choices:</p>
+<ul class="simple">
+<li>simply selecting the geometries;</li>
+<li>automatically deleting the geometries;</li>
+<li>moving the geometries to a new layer. The layer will be named
+[NameOfSelectionProcess]-[Date and Time]</li>
+</ul>
+<div class="section" id="types-of-selection-processes">
+<h3>5.1.1. Types of Selection Processes :<a class="headerlink" href="#types-of-selection-processes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>SelectRoofFaces : this will select the top-most&nbsp;geometries</li>
+<li>SelectWallFaces : this will select all the vertical faces.</li>
+</ul>
+<p>These two selection features are pretty good at distinguishing one from
+the other. To test this, I&#8217;ve modified my original shapefile, adding a
+pointed roof and a small dormer on top of the original roof. The
+selection module still works&nbsp;:</p>
+<div class="figure" id="id1">
+<a class="aligncenter reference internal image-reference" href="_images/selectroof-ensan-mod.png"><img alt="_images/selectroof-ensan-mod.png" class="aligncenter" src="_images/selectroof-ensan-mod.png" style="width: 156.0px; height: 195.75px;" /></a>
+<p class="caption"><span class="caption-text">Roof Selection</span></p>
+</div>
+<div class="figure" id="id2">
+<a class="aligncenter reference internal image-reference" href="_images/selectfaces-ensan-mod.png"><img alt="_images/selectfaces-ensan-mod.png" class="aligncenter" src="_images/selectfaces-ensan-mod.png" style="width: 146.0px; height: 206.0px;" /></a>
+<p class="caption"><span class="caption-text">Wall Selection</span></p>
+</div>
+<ul class="simple">
+<li>SelectGroundLevelFaces : Selects all the faces with a z0 value of 0.
+When performing this on a building layer, this selects the ground
+floor. This will also work for ground-level Sampled Faces and
+Bounding Box with a Z-value of 0.</li>
+<li>SelectAllConnectedFaces : used for export towards Salome</li>
+<li>Select UnnecessaryEdges : selects&nbsp;Tin edges of coplanar surfaces to
+simplify a rough terrain by grouping coplanar faces. This is mainly
+used &nbsp;used directly with the <strong>remove geometries&nbsp;</strong>option. You may
+have to play around with the&nbsp;<strong>threshold value</strong>, as there&#8217;s a
+strong chance some of your faces will disappear. This is because your
+threshold value is too low, meaning your margin of error is too large
+when selecting coplanar faces. Conversely, choosing too small a value
+will hardly reduce your number of faces, if any at all.</li>
+</ul>
+<div class="figure" id="id3">
+<a class="aligncenter reference internal image-reference" href="_images/before-useless-edges.png"><img alt="_images/before-useless-edges.png" class="aligncenter" src="_images/before-useless-edges.png" style="width: 736.0px; height: 393.0px;" /></a>
+<p class="caption"><span class="caption-text">Original Terrain</span></p>
+</div>
+<div class="figure" id="id4">
+<a class="aligncenter reference internal image-reference" href="_images/useless-useless-edges.png"><img alt="_images/useless-useless-edges.png" class="aligncenter" src="_images/useless-useless-edges.png" style="width: 650.0px; height: 391.0px;" /></a>
+<p class="caption"><span class="caption-text">Deleting Unnecessary Edges with Too Low a Threshold will Puncture the Terrain</span></p>
+</div>
+<div class="figure" id="id5">
+<a class="aligncenter reference internal image-reference" href="_images/after-useless-edges.png"><img alt="_images/after-useless-edges.png" class="aligncenter" src="_images/after-useless-edges.png" style="width: 621.0px; height: 369.0px;" /></a>
+<p class="caption"><span class="caption-text">Result of Selecting a Correct Threshold for Unnecessary Edges</span></p>
+</div>
+<ul class="simple">
+<li>SelectGroupsAccordingToVolumeProperties : Whether the 3D geometry is
+closed (ie, hermetic, bounded by faces on all sides), or open
+(missing a face, or with window or door openings).</li>
+</ul>
+<p>An interesting feature is that these types of selections will bypass
+geometry Groups made in sketchUp.</p>
+</div>
+</div>
+<div class="section" id="batch-processing">
+<span id="batchprocess"></span><h2>5.2. ﻿Batch Processing<a class="headerlink" href="#batch-processing" title="Permalink to this headline">¶</a></h2>
+<p>Batch Processing allows you to automate a number of processes&nbsp;available
+in t4su, rather than working with point-and-click.</p>
+<div class="figure">
+<img alt="_images/batchprocess1.png" class="aligncenter size-full" src="_images/batchprocess1.png" />
+</div>
+<p>You first&nbsp;need to plot any points of interest, through a sampling
+method, or by importing a layer&nbsp;or geo-localized points. Using predefined data for your calculations allows for a more precise result than using your mouse for each individual point, and may be time-saving depending on the number of points you have.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="sampling-methods.html#sampling-methods"><span class="std std-ref">﻿Sampling Methods</span></a></p>
+<p class="last"><a class="reference internal" href="loading-shapefiles-into-sketchup.html#loading-data"><span class="std std-ref">﻿Loading your data into SketchUp</span></a></p>
+</div>
+<p>Once you click&nbsp;<strong>Extensions &gt; Misc &gt; BatchProcess</strong>, the
+following box will appear :</p>
+<div class="figure">
+<img alt="_images/batchprocessbox1.png" class="aligncenter" src="_images/batchprocessbox1.png" />
+</div>
+<p>Select your layer containing your data points. These will be at the
+center of your disks (if you work in 2D) or spheres (for 3D Isovists or
+Sky Mapping), or the origin of your rays (in the case of Ray Casting).</p>
+</div>
+<div class="section" id="running-times-and-geometrical-precision">
+<span id="running-times"></span><h2>5.3. ﻿Running Times and Geometrical Precision<a class="headerlink" href="#running-times-and-geometrical-precision" title="Permalink to this headline">¶</a></h2>
+<p>Most modules in T4SU allow you to choose your precision. There are general guidelines for choosing the correct. First, we can notice that the precision &#8220;p&#8221; follows the equation:</p>
+<p>What is the concrete impact of augmenting precision ? Here is a first concrete example using 3D Sky Map:</p>
+<div class="figure" id="id6">
+<img alt="_images/sky-map-3d-41.png" class="aligncenter" src="_images/sky-map-3d-41.png" />
+<p class="caption"><span class="caption-text">3D Skymap (p=4)</span></p>
+</div>
+<div class="figure" id="id7">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-16.png"><img alt="_images/sky-map-3d-16.png" class="aligncenter" src="_images/sky-map-3d-16.png" style="width: 332.0px; height: 224.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=16)</span></p>
+</div>
+<div class="figure" id="id8">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-64.png"><img alt="_images/sky-map-3d-64.png" class="aligncenter" src="_images/sky-map-3d-64.png" style="width: 320.0px; height: 270.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=64)</span></p>
+</div>
+<div class="figure" id="id9">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-256.png"><img alt="_images/sky-map-3d-256.png" class="aligncenter" src="_images/sky-map-3d-256.png" style="width: 368.0px; height: 316.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=256)</span></p>
+</div>
+<div class="figure" id="id10">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-1024.png"><img alt="_images/sky-map-3d-1024.png" class="aligncenter" src="_images/sky-map-3d-1024.png" style="width: 356.0px; height: 292.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=1024)</span></p>
+</div>
+<div class="figure" id="id11">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-4096.png"><img alt="_images/sky-map-3d-4096.png" class="aligncenter" src="_images/sky-map-3d-4096.png" style="width: 366.0px; height: 330.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=4096)</span></p>
+</div>
+<div class="figure" id="id12">
+<a class="aligncenter reference internal image-reference" href="_images/sky-map-3d-16384.png"><img alt="_images/sky-map-3d-16384.png" class="aligncenter" src="_images/sky-map-3d-16384.png" style="width: 384.0px; height: 348.0px;" /></a>
+<p class="caption"><span class="caption-text">3D Skymap (p=16384)</span></p>
+</div>
+<p>For n=1, the most basic form is a four-sided pyramid. For n=2, the number of faces is 4<sup>2</sup>= 16. For n=3, the number of faces is 4<sup>3&nbsp;</sup>= 64
+and so on. To calculate running times, each type of 3D SkyView has been
+repeated ten times, leaving the Ruby Console window on to show the
+elapsed time after each run. Although computation times will change
+according to the hardware used, here is a general idea of how long each
+type of 3D Sky View will take;&nbsp;As you can see, the last construction
+took 19 minutes (1150 seconds) to finish!</p>
+<div class="figure" id="id13">
+<img alt="_images/timing-results.png" class="aligncenter" src="_images/timing-results.png" />
+<p class="caption"><span class="caption-text">Time (in seconds) taken for each 3D SkyView construction depending on its number of faces</span></p>
+</div>
+<p>Precision is also important when <cite>constructing
+isovists. As with Sky Views, we have the a choice of 4:sup:`n</cite>&nbsp;precision. In
+this case, we are subject to 4, 16, 64 (...) rays to build our isovist.
+Too few rays, and the negative space will not be entirely mapped out :</p>
+<div class="figure" id="id14">
+<a class="aligncenter reference internal image-reference" href="_images/rayiso-4.png"><img alt="_images/rayiso-4.png" class="aligncenter" src="_images/rayiso-4.png" style="width: 1021.5px; height: 579.0px;" /></a>
+<p class="caption"><span class="caption-text">2D isovist built with 4 Rays, also shown.</span></p>
+</div>
+<div class="figure" id="id15">
+<a class="aligncenter reference internal image-reference" href="_images/rayiso-16.png"><img alt="_images/rayiso-16.png" class="aligncenter" src="_images/rayiso-16.png" style="width: 1065.0px; height: 649.5px;" /></a>
+<p class="caption"><span class="caption-text">2D isovist built with 16 rays, also shown</span></p>
+</div>
+<p>In the pictures above
+(n=1,2 respectively), because the precision is too low, parts of the
+isovist traverse the buildings. You can verify this by clicking&nbsp;<strong>View &gt; Face Style &gt; X-ray</strong>. When moving to a precision of 256 (n=3), we can
+still notice a small error:</p>
+<div class="figure" id="id16">
+<a class="aligncenter reference internal image-reference" href="_images/iso-2561.png"><img alt="_images/iso-2561.png" class="aligncenter" src="_images/iso-2561.png" style="width: 713.0px; height: 428.0px;" /></a>
+<p class="caption"><span class="caption-text">2D Isovist Constituted of 256 Rays.</span></p>
+</div>
+<div class="figure" id="id17">
+<a class="aligncenter reference internal image-reference" href="_images/iso-error-256.png"><img alt="_images/iso-error-256.png" class="aligncenter" src="_images/iso-error-256.png" style="width: 406.0px; height: 210.0px;" /></a>
+<p class="caption"><span class="caption-text">Close-Up of the 256-Ray Isovist.</span></p>
+</div>
+<p>Moving to 1024 or 4096 rays correct this problem: they&nbsp;are almost
+identical, but the first one takes approximately 0.3 seconds whilst the
+second one take 1.3 seconds.</p>
+<div class="figure" id="id18">
+<a class="aligncenter reference internal image-reference" href="_images/iso-1024.png"><img alt="_images/iso-1024.png" class="aligncenter" src="_images/iso-1024.png" style="width: 713.0px; height: 429.0px;" /></a>
+<p class="caption"><span class="caption-text">2D Isovist (1024)</span></p>
+</div>
+<div class="figure" id="id19">
+<a class="aligncenter reference internal image-reference" href="_images/iso-4096.png"><img alt="_images/iso-4096.png" class="aligncenter" src="_images/iso-4096.png" style="width: 710.0px; height: 429.0px;" /></a>
+<p class="caption"><span class="caption-text">2D Isovist (4096)</span></p>
+</div>
+<p>In this case, the isovist with a precision of 1024 rays has the best precision to calculation time ratio.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="2d-visibility-studies.html#what-is-isovist"><span class="std std-ref">﻿What is an isovist ?</span></a></p>
+</div>
+</div>
+<div class="section" id="using-buffers-as-visual-information">
+<span id="buffers"></span><h2>5.4. ﻿Using Buffers as Visual Information<a class="headerlink" href="#using-buffers-as-visual-information" title="Permalink to this headline">¶</a></h2>
+<p>T4su allows you to create buffers around points: a polygon enclosing a
+point at a fixed distance. You can access it by clicking <strong>Extensions &gt; t4su &gt; Edit &gt; Buffer</strong>.</p>
+<div class="figure">
+<img alt="_images/buffer-box.png" class="aligncenter" src="_images/buffer-box.png" />
+</div>
+<p>The buffer&#8217;s&nbsp;form&nbsp;can be either <strong>Round</strong> or&nbsp;<strong>Mitre</strong>, meaning
+square.</p>
+<div class="figure" id="id20">
+<a class="aligncenter reference internal image-reference" href="_images/round-buffers1.png"><img alt="_images/round-buffers1.png" class="aligncenter" src="_images/round-buffers1.png" style="width: 215.5px; height: 262.0px;" /></a>
+<p class="caption"><span class="caption-text">Round 2D Buffers</span></p>
+</div>
+<div class="figure" id="id21">
+<a class="aligncenter reference internal image-reference" href="_images/square-buffers.png"><img alt="_images/square-buffers.png" class="aligncenter" src="_images/square-buffers.png" style="width: 221.0px; height: 260.5px;" /></a>
+<p class="caption"><span class="caption-text">Mitre 2D Buffers</span></p>
+</div>
+<p>The buffer&#8217;s command box also allows you to set your buffer in 2D or 3D space. If you have selected a mitre buffer, the 3D result will be a cube, the size of the sides being your&nbsp;<strong>set buffer size</strong>. If you&#8217;ve selected a round buffer, your <strong>set buffer size</strong>&nbsp;will represent the length of the radius of a sphere.</p>
+<div class="figure" id="id22">
+<a class="aligncenter reference internal image-reference" href="_images/cube-buffers.png"><img alt="_images/cube-buffers.png" class="aligncenter" src="_images/cube-buffers.png" style="width: 213.0px; height: 254.5px;" /></a>
+<p class="caption"><span class="caption-text">Cubic Buffer</span></p>
+</div>
+<div class="figure" id="id23">
+<a class="aligncenter reference internal image-reference" href="_images/round-buffers.png"><img alt="_images/round-buffers.png" class="aligncenter" src="_images/round-buffers.png" style="width: 214.0px; height: 254.0px;" /></a>
+<p class="caption"><span class="caption-text">Spheric Buffer</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These buffers are regular geometries in your field. If they are left apparent while running a module that requires ray casting, your buffers will be taken into account and&nbsp;<strong>will interfere&nbsp;with the calculations</strong>.</p>
+</div>
+</div>
+<div class="section" id="basic-example-of-data-visualization">
+<span id="visualizing-building-heights"></span><h2>5.5. Basic Example of Data Visualization<a class="headerlink" href="#basic-example-of-data-visualization" title="Permalink to this headline">¶</a></h2>
+<p>T4su allows for an easy and rapid way of determining the range of
+building heights.</p>
+<p>First, click <strong>Extensions &gt; t4su &gt; View &gt; ColorFaces</strong></p>
+<div class="figure">
+<a class="size-medium aligncenter reference internal image-reference" href="_images/colorfaces.png"><img alt="_images/colorfaces.png" class="size-medium aligncenter" src="_images/colorfaces.png" style="width: 350.0px; height: 206.0px;" /></a>
+</div>
+<p>The following box will appear :</p>
+<div class="figure">
+<img alt="_images/colorfaces-box.png" class="size-medium aligncenter" src="_images/colorfaces-box.png" />
+</div>
+<ul class="simple">
+<li>Select your color scheme. You will notice that all colors appear
+twice, one of each&nbsp;containing a &#8220;-&#8221; in front (see picture above).
+&nbsp;Selecting a color scheme without &#8220;-&#8221; will allocate darker colors to
+smaller buildings and lighter colors to taller buildings. The &#8220;-&#8221;
+will produce the opposite : darker colors for higher buildings,
+lighter colors for smaller buildings.</li>
+<li>Select the correct attribute amongst the list. Here we have selected
+building heights (elevation:double) but you could choose
+another&nbsp;criteria ( as long as it is float or integer).</li>
+<li>Select the number of classes you wish to create. This is entirely up
+to you, but keep in mind that above 5 classes, the difference in
+color may be difficult to distinguish. If you do, we recommend you
+use &#8220;fire&#8221;, &#8220;ice&#8221; or &#8220;GreenRed&#8221; which allows for&nbsp;a change of hue
+instead of a change in lightness / darkness. Be careful to select a
+color scheme that <a class="reference external" href="http://icaci.org/files/documents/ICC_proceedings/ICC2011/Oral%20Presentations%20PDF/B1-Graphical%20Semiology,%20visual%20variables/CO-084.pdf">corresponds to the nature of your
+data</a>.</li>
+</ul>
+<p>Here is an example of the end result :</p>
+<div class="figure">
+<img alt="_images/colorfaces-results.png" class="size-medium aligncenter" src="_images/colorfaces-results.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sampling-methods.html" class="btn btn-neutral float-right" title="6. ﻿Sampling Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="extruding-heights-from-your-geometries.html" class="btn btn-neutral" title="4. Preparing Your Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

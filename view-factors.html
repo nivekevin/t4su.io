@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. View Factors &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="11. T4SU Ruby API" href="T4SU-API.html"/>
+        <link rel="prev" title="9. Sky Maps" href="sky-maps.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. View Factors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-science-behind-sky-view-factors">10.1. The Science Behind : Sky View Factors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-short-history">10.1.1. A Short History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sky-view-factor-and-radiation">10.1.2. Sky View Factor and Radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sky-view-factor-and-heat-ilsand-phenomena">10.1.3. Sky View Factor and Heat Ilsand Phenomena</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#calculating-the-sky-view-factor">10.2. Calculating the Sky View Factor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-science-behind-solar-radiation">10.3. The Science Behind : Solar Radiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-definitions">10.3.1. Initial Definitions :</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solar-angle-and-irradiance">10.3.2. Solar Angle and Irradiance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#atmorsphere-s-interference">10.3.3. Atmorsphere&#8217;s Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#night-time-radiation">10.3.4. Night-time Radiation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sun-view-factors">10.4. ﻿Sun View Factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-direct-solar-irradiation-along-a-path">10.5. ﻿Viewing Direct Solar Irradiation along a Path</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>10. View Factors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/view-factors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="view-factors">
+<span id="id1"></span><h1>10. View Factors<a class="headerlink" href="#view-factors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-science-behind-sky-view-factors">
+<span id="science-behind-skyvf"></span><h2>10.1. The Science Behind : Sky View Factors<a class="headerlink" href="#the-science-behind-sky-view-factors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-short-history">
+<h3>10.1.1. A Short History<a class="headerlink" href="#a-short-history" title="Permalink to this headline">¶</a></h3>
+<p>One of the earliest SVF calculations were made with the help of digital cameras mounted with Fisheye lens. The masks were then delineated manually and the SVF is calculated with Steyn&#8217;s method <a class="footnote-reference" href="#id12" id="id2">[1]</a>. Other raster-based calculations were later developped, using pixel counting methods <a class="footnote-reference" href="#id13" id="id3">[2]</a> <a class="footnote-reference" href="#id14" id="id4">[3]</a>. To overcome this somewhat manual and time-consuming method <a class="footnote-reference" href="#id15" id="id5">[4]</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#solarpage"><span class="std std-ref">The Science Behind : Solar Radiation</span></a></p>
+</div>
+</div>
+<div class="section" id="sky-view-factor-and-radiation">
+<span id="svfradiation"></span><h3>10.1.2. Sky View Factor and Radiation<a class="headerlink" href="#sky-view-factor-and-radiation" title="Permalink to this headline">¶</a></h3>
+<p>A Sky View Factor (SVFs) represents the ratio at a point in space between the visible sky and a hemisphere centered over the analyzed location (Oke 1981) :</p>
+<p>At a point where the SVF = O, the entire sky is blocked from view by obstacles.
+If there is an obstacle blocking parts of the sky view, the SVF will be greater than 0.</p>
+<ul>
+<li><p class="first">for SVF = 0 :</p>
+<blockquote>
+<div><ul class="simple">
+<li>there is no short-wave reflection</li>
+<li>there is no long-wave nocturnal interference</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>According to Oke <a class="footnote-reference" href="#id16" id="id6">[5]</a>, cited by many papers including Hammerle et al. <a class="footnote-reference" href="#id17" id="id7">[6]</a>, the energy budget (in terms of flux) can in this case be considered <em>ideal</em></p>
+<p>Where Q<sub>*</sub> is the total energy balance, Q<sub>G</sub>is the energy stored in soil and/or buildings, Q<sub>H</sub>is the sensible heat (air temperature) and Q<sub>E</sub>is the latent heat (evaporated water).</p>
+<ul>
+<li><p class="first">for SVF &gt; 0 :</p>
+<blockquote>
+<div><ul class="simple">
+<li>incoming day-time short-wave reflection increases during the day</li>
+<li>outgoing night-time long-wave radiation is reduced</li>
+<li>incoming night-time long-wave radiation is increased</li>
+<li>altered soil heat flux</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information on th different types of radiation, see <a class="reference internal" href="#nightrad"><span class="std std-ref">Night-time Radiation</span></a></p>
+</div>
+<p>Because of its influence on energy balances, the SVF holds an importance in various fields of climatology (urban <a class="footnote-reference" href="#id18" id="id8">[7]</a>, forest <a class="footnote-reference" href="#id19" id="id9">[8]</a>, human biometeorology <a class="footnote-reference" href="#id20" id="id10">[9]</a>...) but its most widespread use concerns the heat island phenomena.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#solarpage"><span class="std std-ref">The Science Behind : Solar Radiation</span></a>
+<a class="reference internal" href="2d-visibility-studies.html#science-behind-iso"><span class="std std-ref">The Science Behind : Isovists</span></a></p>
+</div>
+</div>
+<div class="section" id="sky-view-factor-and-heat-ilsand-phenomena">
+<h3>10.1.3. Sky View Factor and Heat Ilsand Phenomena<a class="headerlink" href="#sky-view-factor-and-heat-ilsand-phenomena" title="Permalink to this headline">¶</a></h3>
+<p>One of the earliest studies demonstrating the link between sky view factor and local urban temperatures was made by Yamashita et al. <a class="footnote-reference" href="#id21" id="id11">[10]</a> (1985).</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Steyn, D. G. (1980). The calculation of view factors from fisheye‐lens photographs: Research note. Atmosphere-Ocean, 18, 254–258. <a class="reference external" href="https://doi.org/10.1080/07055900.1980.9649091">https://doi.org/10.1080/07055900.1980.9649091</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>MMatzarakis, A., Rutz, F., &amp; Mayer, H. (2007). Modelling radiation fluxes in simple and complex environments: Basics of the RayMan model. International Journal of Biometeorology, 51, 323–334. <a class="reference external" href="https://doi.org/10.1007/s00484-006-0061-8">https://doi.org/10.1007/s00484-006-0061-8</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td>Rzepa &amp; Gromk 2006, Gal et al 2007</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td>Hämmerle, Gal, Unger, Matzarakis 2001,</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td>Oke, T. R. (1982). The energetic basis of the urban heat island. Quarterly Journal of the Royal Meteorological Society, 108(455), 1–24. <a class="reference external" href="https://doi.org/10.1002/qj.49710845502">https://doi.org/10.1002/qj.49710845502</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>Hämmerle, Gal, Unger, Matzarakis, 2011, Comparison of Models Calculating the Sky View Factor used for Urban Climate Investigations, Theoretical and Applied Climatology, Oct. 2011, Vol. 105, n. 3, pp. 521-527</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id18" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td>Watson, I. D., &amp; Johnson, G. T. (1987). Graphical estimation of sky view-factors in urban environments. Journal of Climatology, 7(2), 193–197. <a class="reference external" href="https://doi.org/10.1002/joc.3370070210">https://doi.org/10.1002/joc.3370070210</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td>Holmer et al., 2001</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>Matzarakis, 2001</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[10]</a></td><td>Yamashita, 1985, On Relationships Between Heat Ilsand and Sky View Factor in the Cities of Tama River Basin, Japan. Atmopheric Environment Vol. 20, n°4, pp. 681-685 1986 Pergamon Press Ltd.</td></tr>
+</tbody>
+</table>
+<p>View Factors reduce the information given by sky maps and sunny sky maps to a single numerical value, allowing for a more traditional cartography of a discretisized space. Sky View Factors represent the ratio of visible sky at a point, which we could find the Sky View Factor alternatively by attributing to a Sky Map Disc&#8217;s center the ratio between the disc&#8217;s area and the area representing visual obstacles. Similarily, Sun View Factors can be found by comparing the number of points of a sun path not blocked by obstacles with the total amount of points in the sun path.</p>
+</div>
+</div>
+<div class="section" id="calculating-the-sky-view-factor">
+<span id="calc-svf"></span><h2>10.2. Calculating the Sky View Factor<a class="headerlink" href="#calculating-the-sky-view-factor" title="Permalink to this headline">¶</a></h2>
+<p>The Sky View Factor (SVF) is used in the evaluation of the impact of
+urban geometry on&nbsp;the micro-climate, specifically temperature and the
+Urban Heat Island phenomenon. Sky View Factors&nbsp;help in the&nbsp;comprehension of an area&#8217;s potential direct sunlight in a given amount of time. The SVF indicates the ratio between :</p>
+<ul class="simple">
+<li>the radiation received / emitted by a surface from/to the sky</li>
+</ul>
+<p>and</p>
+<ul class="simple">
+<li>the theoretical total hemispheric radiating environment.</li>
+</ul>
+<p>Direct &#8220;visibility&#8221; between the sky and a plane means radiation can
+escape the urban setting into the atmosphere, whereas radiation between
+said plane and another plane keeps radiation trapped. Higher SVFs
+therefore indicate spaces that would theoretically cool down (emit more
+radiation towards the sky) than a space with low SVF.</p>
+<p>Let&#8217;s see how we assess the Sky View Factor in an urban setting. First
+off, follow the
+instructions to&nbsp;create
+a grid layout of the urban space. For this example, we&#8217;re using a 10x10
+grid, with z=0.1m.</p>
+<p>Next, select the Sky View Factor in
+the&nbsp;BatchProcessing&nbsp;options.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="sampling-methods.html#sampling-bounding-box"><span class="std std-ref">﻿Sampling the Bounding box</span></a></p>
+<p class="last"><a class="reference internal" href="for-starters.html#batchprocess"><span class="std std-ref">﻿Batch Processing</span></a></p>
+</div>
+<p>Fill in the next two command boxes accordingly.&nbsp;In the first box:</p>
+<ul class="simple">
+<li>Select SkyViewFactor as process</li>
+<li>Select the layer containing your sampled bounding box</li>
+<li>Select &#8220;Sketchup:Face&#8221;</li>
+</ul>
+<div class="figure">
+<a class="aligncenter reference internal image-reference" href="_images/bbox-5x5-for-svf-box1.png"><img alt="_images/bbox-5x5-for-svf-box1.png" class="aligncenter" src="_images/bbox-5x5-for-svf-box1.png" style="width: 651px; height: 89px;" /></a>
+</div>
+<p>The second command allows you to control the SVF parameters:</p>
+<ul class="simple">
+<li>Select the number of rays used to calculated the SVF, ie: its
+precision. Be careful though, this process is repeated for each
+sample and will impact your computing time dramatically</li>
+<li>Set the z0 value to 0.1, meaning we will check the SVF at ground
+level.</li>
+<li>Select your unit length</li>
+<li>Finally, select the name under which the values are stored. We
+recommend you keep &nbsp;the default name &#8220;svf&#8221; to keep from any
+confusion.</li>
+</ul>
+<div class="figure">
+<img alt="_images/bbox-5x5-for-svf-box2.png" class="aligncenter" src="_images/bbox-5x5-for-svf-box2.png" />
+</div>
+<p>Once that is done, you can check your new feature&nbsp;by
+selecting <strong>Extensions &gt; View &gt; PickUpEntity&nbsp;</strong> to view&nbsp;individual
+squares, or by going to <strong>Extensions &gt; View &gt; PrintAttributeValues ** and by selecting **svf:Float</strong> in the following
+command box to show&nbsp;the values of every sample.</p>
+<p>But there is a much better way of viewing and presenting the data, much
+like what we&#8217;ve done when viewing building
+heights.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><span class="xref std std-ref">visualizing-bilding-heights</span></p>
+</div>
+<p>Select&nbsp;<strong>Extensions &gt; t4su &gt; View &gt; ColorFaces.</strong></p>
+<div class="figure">
+<img alt="_images/view-svf-box.png" class="aligncenter" src="_images/view-svf-box.png" />
+</div>
+<ul class="simple">
+<li>In the next command box, select the&nbsp;color range you wish to use.</li>
+<li>In the drop-down menu next to &#8220;select attribute&#8217;s name&#8221;, find and
+select &#8220;svf:Float&#8221;</li>
+<li>Select the number of classes you&nbsp;want for your map.</li>
+<li>Hit&nbsp;<strong>OK</strong></li>
+</ul>
+<p>Your grid should be colored to resemble something like this :</p>
+<div class="figure" id="id23">
+<a class="size-full aligncenter reference internal image-reference" href="_images/skyview-10x10-result.png"><img alt="_images/skyview-10x10-result.png" class="size-full aligncenter" src="_images/skyview-10x10-result.png" style="width: 550.0px; height: 423.0px;" /></a>
+<p class="caption"><span class="caption-text">Sky View Factor over Cathedral Sector, Nantes</span></p>
+</div>
+<div class="figure" id="id24">
+<a class="size-full aligncenter reference internal image-reference" href="_images/skyview-10x10-result-box.png"><img alt="_images/skyview-10x10-result-box.png" class="size-full aligncenter" src="_images/skyview-10x10-result-box.png" style="width: 119.0px; height: 209.0px;" /></a>
+<p class="caption"><span class="caption-text">Associated Legend of the SVF Map.</span></p>
+</div>
+<p>Unless you&#8217;ve taken a color range with a &#8220;-&#8221; in front, lighter values
+express areas with a high SVF,&nbsp;meaning areas which &#8220;view&#8221; much of the
+sky. Darker areas, mostly in small streets and inside building blocks,
+do not &#8220;see&#8221; much sky directly : most of the radiation is captured and
+recaptured by adjacent walls.</p>
+</div>
+<div class="section" id="the-science-behind-solar-radiation">
+<span id="solarpage"></span><h2>10.3. The Science Behind : Solar Radiation<a class="headerlink" href="#the-science-behind-solar-radiation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initial-definitions">
+<h3>10.3.1. Initial Definitions :<a class="headerlink" href="#initial-definitions" title="Permalink to this headline">¶</a></h3>
+<p>Solar Energy is the amount of energy sent by the sun, meaning the maximum energy received by the Earth, without taking into account climatic conditions (clouds), date or time of day which impact the angle of the surface relative to the sun.</p>
+<p>Solar Irradiance (or insolation) is the energy received by a given area of the Earth&#8217;s surface. It&#8217;s measured in Watts per square meter. As the angle between Sun and surfaces&#8217; normal grows, the solar energy is spread over a larger surface, reducing solar radiance. Solar Irradiation is Solar Irradiance intergrated over time.</p>
+</div>
+<div class="section" id="solar-angle-and-irradiance">
+<span id="solarangle"></span><h3>10.3.2. Solar Angle and Irradiance<a class="headerlink" href="#solar-angle-and-irradiance" title="Permalink to this headline">¶</a></h3>
+<p>Both place and time come into play when calculating the the solar angle. Place concerns where we are : latitude and longitude :</p>
+<p>There are two conjoined earthly movement to be taken into account.
+- The rotation of the Earth on itself :</p>
+<ul class="simple">
+<li>The rotation of the Earth around the Sun :</li>
+</ul>
+<p>Finally, we must keep in mind that the Earth&#8217;s rotation axe is inclined at 23°27 from the ecliptic plane. This tilt is at the origin of our yearly seasons : we consider the Earth tilted at +23°27 during summer (Souther hemisphere) and -23°27 during winter, the tilt beeing equal to 0 during the equinoxes.</p>
+<p>Time concerns The day of the year and the time of day. All of these factors need to be taken into account before any more local analyses.</p>
+<p>For Solar irradiation, we need to factor in time :</p>
+</div>
+<div class="section" id="atmorsphere-s-interference">
+<span id="atmointerference"></span><h3>10.3.3. Atmorsphere&#8217;s Interference<a class="headerlink" href="#atmorsphere-s-interference" title="Permalink to this headline">¶</a></h3>
+<p>Radiation reaches the Earth&#8217;s surface in a more or less direct way, depending on the atmospheric interference. Water, dust and pullutants floating in the air will refract rays, dispersing sunlight in multiple directions. The higher the interference, the more diffused the sunlight will be when reaching the surface. The unit of measurement to describe the amount of cloud cover is called an Okta, where 0 Okta is a completely clear sky and 8 Okta is a completely cloudy sky.</p>
+</div>
+<div class="section" id="night-time-radiation">
+<span id="nightrad"></span><h3>10.3.4. Night-time Radiation<a class="headerlink" href="#night-time-radiation" title="Permalink to this headline">¶</a></h3>
+<p>Any radiation received by the ground (or buildings) will start releassing heat the moment the air surrounding it turns colder than the soil, typically during night-time.</p>
+<p>The radiation emitted has changed to long-wave radiation. In a given urban model, for there to be energy loss (ie, heat loss), the radiation needs to escape back to the atmosphere. This implies a covisibility between the surfaces and the sky vault. More information on <a class="reference internal" href="#svfradiation"><span class="std std-ref">Sky View Factor and Radiation</span></a></p>
+<p>Local weather will greatly affect solar radiation, especially the presence of clouds. As the sun passes through them, the light gets reflected and defused.</p>
+</div>
+</div>
+<div class="section" id="sun-view-factors">
+<span id="id22"></span><h2>10.4. ﻿Sun View Factors<a class="headerlink" href="#sun-view-factors" title="Permalink to this headline">¶</a></h2>
+<p>Once you&#8217;ve created a Sun
+Path, you
+can use it&nbsp;to calculate the <strong>Sun View Factor</strong>, which works a little
+like the Sky View
+Factor :&nbsp;instead
+of checking covisibilities between geometry faces and the sky dome, it
+will check the covisibility between a geometry and each point of your
+Sun Path.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="drawing-sun-paths.html#drawing-sun-paths"><span class="std std-ref">﻿Drawing Sun Paths</span></a></p>
+<p class="last"><a class="reference internal" href="#calc-svf"><span class="std std-ref">Calculating the Sky View Factor</span></a></p>
+</div>
+<p>Clicking on&nbsp;<strong>Extensions &gt; t4su &gt; Sun Views &gt;
+SunViewFactor&nbsp;</strong>will enable the following command box :</p>
+<div class="figure">
+<img alt="_images/sunviewfactor-box.png" class="aligncenter size-full" src="_images/sunviewfactor-box.png" />
+</div>
+<ul class="simple">
+<li>Select the two corresponding layers : your SunPath layer and your
+geometry layer.</li>
+<li>You can choose to alerate the results slightly by choosing a specific
+type of sky (from &#8220;pure&#8221; to &#8220;cloudy&#8221;).</li>
+</ul>
+<p>Once that is done, you will find that your geometries now have extra
+attributes:</p>
+<ul class="simple">
+<li>directSolarIrradiance:Float
+represents the cumulative theoretical radiative energy received by
+the geometry from the sun at each point, which depends on their
+&nbsp;covisibility and&nbsp;the angle of the sun&#8217;s rays.*</li>
+<li>nbHitsTotal:Int, the number rays&nbsp;between the geometry and the
+SunPath points</li>
+<li>nbMinTotal:Float,&nbsp;the number of rays between the geometry and
+SunPath, multiplied by the frequency of the plot of the Sun Path&nbsp;(eg:
+for a plot every 5 minutes if nbHitsTotal=2, nbMinTotal=10)</li>
+<li>ratioTotal:Float</li>
+</ul>
+<p>You can then use
+<strong>ColorFaces</strong> to
+see the geographical variations of each of these new attributes. Below,
+we&#8217;ve drawn two different maps of the same phenomena : The number of
+minutes a defined space
+will receive direct sunlight on two opposing dates : 21st of June and
+21st of December, the longest and shortest days of the year
+respectively.</p>
+<div class="figure" id="id25">
+<img alt="_images/numminwinter.png" class="aligncenter size-full" src="_images/numminwinter.png" />
+<p class="caption"><span class="caption-text">Number of Minutes of Sunlight for the 12st of December</span></p>
+</div>
+<div class="figure" id="id26">
+<img alt="_images/numminsummer.png" class="aligncenter size-full" src="_images/numminsummer.png" />
+<p class="caption"><span class="caption-text">Number of Minutes of Sunlight for the 21st of June</span></p>
+</div>
+<p>Wouldn&#8217;t it
+be nice to combine these two into a single map, and be able to visualize
+the difference? Learn how with ArithmeticsOnAttributes.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p><a class="reference internal" href="#viewing-dsi"><span class="std std-ref">﻿Viewing Direct Solar Irradiation along a Path</span></a></p>
+<p><a class="reference internal" href="for-starters.html#visualizing-building-heights"><span class="std std-ref">Basic Example of Data Visualization</span></a></p>
+<p class="last"><a class="reference internal" href="sampling-methods.html#sampling-bounding-box"><span class="std std-ref">﻿Sampling the Bounding box</span></a></p>
+</div>
+</div>
+<div class="section" id="viewing-direct-solar-irradiation-along-a-path">
+<span id="viewing-dsi"></span><h2>10.5. ﻿Viewing Direct Solar Irradiation along a Path<a class="headerlink" href="#viewing-direct-solar-irradiation-along-a-path" title="Permalink to this headline">¶</a></h2>
+<p>The city landscaping team&nbsp;has a new shipment of flowers, and they must
+decide where to plant them. They already have a general idea along a new
+pathway, using planters that reach two meters high so they can be seen
+from afar. These plants&nbsp;are very fragile and burn easily in the direct
+sun.</p>
+<p>To find the ideal spot, we first have to&nbsp;recreate the path with line
+segments that you can import or draw with the SketchUp tool&nbsp;(we will be
+using the one we&#8217;ve
+used&nbsp;before&nbsp;to
+explain sampling points). We then proceed to the sampling of line or
+multi-line into points for example every 5m.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="2d-visibility-studies.html#p2diso"><span class="std std-ref">﻿Creating Partial 2D Isovists</span></a></p>
+</div>
+<p>Then, we need to emulate the planters. To do so, we can create a 3D
+buffer. Click on&nbsp;<strong>Extensions &gt; Edit &gt; Buffer</strong></p>
+<div class="figure">
+<img alt="_images/pathway-buff-get.png" class="aligncenter" src="_images/pathway-buff-get.png" />
+</div>
+<p>Select the name of the layer containing your sampled
+pathway and the geometry of the samples (ConstructionPoints).&nbsp;Next, you
+have the choice to create Round buffers or Mitre buffers (ie, with sharp
+corners). Select its size : we want 2m because we want to know the
+conditions at the top of our pedestals, not at ground floor.</p>
+<div class="figure">
+<img alt="_images/pathway-buff-box.png" class="aligncenter" src="_images/pathway-buff-box.png" />
+</div>
+<div class="figure">
+<img alt="_images/pathway-buff-res-1.png" class="aligncenter" src="_images/pathway-buff-res-1.png" />
+</div>
+<p>Next, we would like to know how much direct solar radiation each pedestal top would receive throughout the year. Create the appropriate sun paths.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="drawing-sun-paths.html#specific-sun-paths"><span class="std std-ref">﻿Specific Sun Paths</span></a></p>
+</div>
+<p>Our plants are here to stay, so let&#8217;s create sun paths for the entire
+year. Go to <strong>Extensions &gt; t4su &gt; Select &gt; SelectRoofFaces&nbsp;</strong> and
+select&nbsp;your buffer layer.</p>
+<div class="figure">
+<img alt="_images/pathway-buff-select-roofs.png" class="aligncenter" src="_images/pathway-buff-select-roofs.png" />
+</div>
+<p>We are finally ready to calculate the direct solar irradiation. Click on&nbsp;<strong>Extensions
+&nbsp;&gt; t4su &gt; Sun views &gt; SunViewFactor.&nbsp;</strong> Select your buffer layer in the
+drop-down list, which still has the &#8220;rooftops&#8221; selected, as well as your
+Sunpath layer.&nbsp;You also have the choice of the type of sky. Let&#8217;s take
+the sky&nbsp;will give the highest radiation results : &#8220;Pure&#8221;. If you click
+on <strong>Extensions &gt; t4su &gt; View &gt; PickUpEntity</strong>, you can select
+each&nbsp;buffer to see the new attributes that have been added. Click
+on <strong>Extensions &gt; t4su &gt; View &gt; ColorFaces&nbsp;</strong> and select
+DirectSolarIrradiance:Float as your classification criteria. You
+shouldn&#8217;t need more than four or five classes. The results show that areas close to intersections generally
+receive slightly more radiation. It would be best to place the plants
+along the narrowest streets.</p>
+<div class="figure" id="id27">
+<a class="aligncenter reference internal image-reference" href="_images/direct-solar-path-result.png"><img alt="_images/direct-solar-path-result.png" class="aligncenter" src="_images/direct-solar-path-result.png" style="width: 596.0px; height: 448.0px;" /></a>
+<p class="caption"><span class="caption-text">Result of the Direct Solar Insolation along a Path, with Legend.</span></p>
+</div>
+<div class="figure" id="id28">
+<a class="aligncenter size-full reference internal image-reference" href="_images/direct-soal-where-to-put-plants.png"><img alt="_images/direct-soal-where-to-put-plants.png" class="aligncenter size-full" src="_images/direct-soal-where-to-put-plants.png" style="width: 539.0px; height: 462.0px;" /></a>
+<p class="caption"><span class="caption-text">Pinpointed Areas with Least Direct Sunlight, 2m above Street Level.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="T4SU-API.html" class="btn btn-neutral float-right" title="11. T4SU Ruby API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sky-maps.html" class="btn btn-neutral" title="9. Sky Maps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

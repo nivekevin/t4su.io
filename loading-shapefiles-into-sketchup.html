@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. ﻿Loading your data into SketchUp &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="4. Preparing Your Data" href="extruding-heights-from-your-geometries.html"/>
+        <link rel="prev" title="2. Installation Procedures" href="how-to-test-it.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. ﻿Loading your data into SketchUp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importing-csv-files">3.1. Importing CSV Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-solene-files">3.2. Importing Solene Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T4SU-API.html">11. T4SU Ruby API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. ﻿Loading your data into SketchUp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/loading-shapefiles-into-sketchup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="loading-your-data-into-sketchup">
+<span id="loading-data"></span><h1>3. ﻿Loading your data into SketchUp<a class="headerlink" href="#loading-your-data-into-sketchup" title="Permalink to this headline">¶</a></h1>
+<p>Once you have installed t4su,
+click on <strong>File&gt;Import...</strong>. As you click on the available file types,
+you can notice that several new types of imports are available :</p>
+<div class="figure">
+<img alt="_images/loading-types-of-data.png" class="aligncenter size-full" src="_images/loading-types-of-data.png" />
+</div>
+<p>You can import geometries :</p>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Esri_grid">ASCII Grid
+file</a>&nbsp;types&nbsp;(*.asc)</li>
+<li><a class="reference external" href="http://aau.archi.fr/crenau/solene/">Solene</a> output files&nbsp;(*.cir)</li>
+<li>WellKnownText (*.wkt) /&nbsp;Comma-Separated Values (*.csv)</li>
+<li>Geography Markup Language (*.gml) /&nbsp;Exentible Markup Language
+(*.xml)</li>
+<li>&nbsp;Mesh Files produced by <a class="reference external" href="http://gmsh.info/">Gmsh</a> (*.msh)</li>
+<li>Shapefiles (*.shp)</li>
+</ul>
+<p>Once you&#8217;ve selected your file&nbsp;and clicked <strong>import</strong>, a first window
+will inform you of the number of geometries found. A second window will
+then appear: this is the Bounding Box.</p>
+<div class="figure">
+<img alt="_images/boundingbox1.png" class="aligncenter" src="_images/boundingbox1.png" />
+</div>
+<p>The X, Y and Z values correspond to the minimum and maximum coordinates of the
+geometry. By leaving the default values, the geometry is
+re-positioned&nbsp;by taking the lower-left corner of the imported geometry
+and setting it at the lower-left corner&nbsp;of the Sketchup local coordinate
+system.</p>
+<div class="section" id="importing-csv-files">
+<h2>3.1. Importing CSV Files<a class="headerlink" href="#importing-csv-files" title="Permalink to this headline">¶</a></h2>
+<p>“Comma-Seperated Value” files store tabular data in the form of a plain text file. These files are very common in GIS, partly because they can be combined with the Well-Known Text format, which translate geometries into text. Here’s an example of a CSV file opened in Qgis :</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/csv-qgis1.png"><img alt="_images/csv-qgis1.png" src="_images/csv-qgis1.png" style="width: 308.0px; height: 299.0px;" /></a>
+<p class="caption"><span class="caption-text">Csv File opened in QGIS.</span></p>
+</div>
+<p>To import csv/wkt files :</p>
+<p>Open the file with a traditional GIS software. If need be, refine your selected area, then save your selection as csv.</p>
+<div class="figure" id="id2">
+<img alt="_images/csv-qgis-box1.png" src="_images/csv-qgis-box1.png" />
+<p class="caption"><span class="caption-text">Saving a CSV file.</span></p>
+</div>
+<p>Chose the following Save Options :</p>
+<blockquote>
+<div><p>CREATE_CSVT: NO</p>
+<p>GEOMETRY: AS_WKT</p>
+<p>LINEFORMAT: Default</p>
+<p>SEPARATOR: SEMICOLON</p>
+<p>WRITE_BOM: NO</p>
+</div></blockquote>
+<p>Open your new CSV file in a text editor. In a regular csv file, your first few lines should resemble something like this :</p>
+<div class="figure" id="id3">
+<img alt="_images/csv-original1.png" src="_images/csv-original1.png" />
+<p class="caption"><span class="caption-text">Original QGIS export file</span></p>
+</div>
+<p>SketchUp needs to know the type of each attribute to properly read csv files, so replace the first line from this :</p>
+<blockquote>
+<div>WKT;id;elevation</div></blockquote>
+<p>to this :</p>
+<blockquote>
+<div># the_geom:Polygon; id:int; elevation:float</div></blockquote>
+<p>Of course, Polygon should be replaced accordingly by Linestring or Point. You may also have other attributes other than these basic ones, including boolean and string types.</p>
+<p>Delete the “” at the start and end of each line. The fastest way to do this is by clicking Edit &gt; Replace, entering ” in the find line and leaving the replace by line empty, and clicking Replace All.</p>
+<div class="figure" id="id4">
+<img alt="_images/csv-import2.png" src="_images/csv-import2.png" />
+<p class="caption"><span class="caption-text">Modified SketchUp import file.</span></p>
+</div>
+<p>You can then import you file into SketchUp.</p>
+<p>Let’s change it up a bit by calculating the sky view factor on the sampled bounding box :</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="_images/bbox-in-sketchup.png"><img alt="_images/bbox-in-sketchup.png" src="_images/bbox-in-sketchup.png" style="width: 308.0px; height: 162.0px;" /></a>
+<p class="caption"><span class="caption-text">Sky View Factor on Sampled Bounding Box.</span></p>
+</div>
+<p>Now that we’ve found what we’re looking for, how can we import this file back to our standard cartography software?
+To export CSV files:</p>
+<p>Click on t4su &gt; New I/O &gt; CsvWktWriter. The following command box will appear :</p>
+<div class="figure" id="id6">
+<img alt="_images/csvwktwriter-box.png" src="_images/csvwktwriter-box.png" />
+<p class="caption"><span class="caption-text">CsvWktWriter Command Box.</span></p>
+</div>
+<p>You can choose to import all (*) or a single Layer at a time. In our example, we’re just interested in our new bounding box. You will also need to supply the geometry type to correctly instantiate the WKT portion of the csv file. In this example, we’re just going to export our bounding box as the oether geometry layer hasn’t been modified.</p>
+<p>If you’ve decided to import all your layers (*), you can choose create a single document for all your geometries. Be warned though, this will not work if you have conflicting geometry types : a single csv file cannot contain more than one geometry type. Here’s what our exported bounding box looks like :</p>
+<div class="figure" id="id7">
+<img alt="_images/bbox-csv-export-original.png" src="_images/bbox-csv-export-original.png" />
+<p class="caption"><span class="caption-text">Original Sketchup Output File</span></p>
+</div>
+<p>Once again, you’ll have to change the first line of your new CSV file : remove the attribute types and replace #the_geom:GEOMETRY by WKT so as to mimic the original file.</p>
+<div class="figure" id="id8">
+<img alt="_images/bbox-csv-export-mod.png" src="_images/bbox-csv-export-mod.png" />
+<p class="caption"><span class="caption-text">Modified Qgis Input File</span></p>
+</div>
+<p>If your file is part of a larger map, select yes at Back to world coordinates. This will reset the geometries to their original geographic location. This way, any geometries or features we have added on SketchUp can be found again at the correct location and coordinate system when re-exporting to a tradition GIS system. To view the Sky Viw Factor in Qgis, <strong>right-click on the layer name &gt; Properties &gt; Style &gt; Categorized &gt; svf &gt; classify</strong>.</p>
+<div class="figure" id="id9">
+<img alt="_images/bbox-in-qgis1.png" src="_images/bbox-in-qgis1.png" />
+<p class="caption"><span class="caption-text">Bounding Box with Sky View Factor viewed in QGIS.</span></p>
+</div>
+<p>My thanks to Houda Belgacem for letting me use her geometry file and for her help with .csv file conversion.</p>
+</div>
+<div class="section" id="importing-solene-files">
+<h2>3.2. Importing Solene Files<a class="headerlink" href="#importing-solene-files" title="Permalink to this headline">¶</a></h2>
+<p>.cir files are Solene’s geometry files. Solene is T4su’s standalone counterpart, so switching from one software to another is pretty straightforward in this case.
+Skp2Solene export.png
+Exporting a Layer to Solene</p>
+<p>You can only import one layer at a time, so make sure everything you need is in the correct one. You can further choose to keep your geometries in a local coordinate system, or use the coordinate system used during the original file import. Solene also uses local coordinates, so choose no unless you’re planning on exporting your Solene file back into real world coordinates further on. You can also choose whether or not to have a unique output file if you’re importing several layers at a time. Unlike other I/O options, this command box does not ask the geometry type because Solene only uses faces.</p>
+<div class="figure" id="id10">
+<img alt="_images/cirvalwriter-box1.png" src="_images/cirvalwriter-box1.png" />
+<p class="caption"><span class="caption-text">Solene Export Command Box</span></p>
+</div>
+<p>Once you hit OK, choose your export path and file name to finalize the .cir file creation. Once in Solene, create a new project, then click on the icon with the red box, file and arrow to import your .cir file.</p>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="_images/solene-export.png"><img alt="_images/solene-export.png" src="_images/solene-export.png" style="width: 308.0px; height: 225.0px;" /></a>
+<p class="caption"><span class="caption-text">Layer’s Geometry Imported in Solene</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extruding-heights-from-your-geometries.html" class="btn btn-neutral float-right" title="4. Preparing Your Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how-to-test-it.html" class="btn btn-neutral" title="2. Installation Procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

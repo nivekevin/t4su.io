@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. T4SU Ruby API &mdash; t4su_doc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="t4su_doc 0.0.1 documentation" href="index.html"/>
+        <link rel="prev" title="10. View Factors" href="view-factors.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> t4su_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-test-it.html">2. Installation Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-shapefiles-into-sketchup.html">3. ﻿Loading your data into SketchUp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extruding-heights-from-your-geometries.html">4. Preparing Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-starters.html">5. General Tips to Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling-methods.html">6. ﻿Sampling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawing-sun-paths.html">7. ﻿Drawing Sun Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2d-visibility-studies.html">8. Ray Casting and Isovists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sky-maps.html">9. Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view-factors.html">10. View Factors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. T4SU Ruby API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#readers">11.1. Readers:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sampling">11.2. Sampling:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#listing-samples">11.3. Listing Samples :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projectallong-z-axis">11.4. ProjectAllong Z Axis :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-layer-invisible">11.5. Make Layer Invisible :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-layer">11.6. Remove Layer :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-trees">11.7. Load Trees :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-partial-3d-isovist">11.8. Create a Partial 3D Isovist :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iterating-over-a-point">11.9. Iterating over a Point :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-line-at-a-point-pointing-downards">11.10. Create a line at a point, pointing downards:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-3d-isovist">11.11. Create a 3D isovist:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partial-3d-isovist">11.12. Partial 3D Isovist</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">t4su_doc</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>11. T4SU Ruby API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/T4SU-API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="t4su-ruby-api">
+<h1>11. T4SU Ruby API<a class="headerlink" href="#t4su-ruby-api" title="Permalink to this headline">¶</a></h1>
+<p>Everything explained in this manual can be reproduced through the Ruby Console.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This section is still under construction, and only presents a few limited examples. Nonetheless, we encourage you to understand the logic behind these small scripts and adapt them to your own needs.</p>
+</div>
+<div class="section" id="readers">
+<h2>11.1. Readers:<a class="headerlink" href="#readers" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">AscReader</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">readAndPlot</span><span class="p">(</span><span class="s2">&quot;d:/tleduc/t4gs/papers/scan-2016/dev/data/dem_ecn_5m.asc&quot;</span><span class="p">,</span> <span class="mf">1.</span><span class="n">m</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ShpDbfReader</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">readAndPlot</span><span class="p">(</span><span class="s1">&#39;d:/tleduc/t4gs/papers/scan-2016/dev/data/vegetation.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sampling">
+<h2>11.2. Sampling:<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SampleFacesAreas</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;vegetation&quot;</span><span class="p">,</span> <span class="mf">15.</span><span class="n">m</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listing-samples">
+<span id="index-0"></span><h2>11.3. Listing Samples :<a class="headerlink" href="#listing-samples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">EntitiesListing</span><span class="o">.</span><span class="n">allConstructionPointsInLayer</span><span class="p">(</span><span class="s2">&quot;SampleFacesAreas_15.00.m_15.00.m&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Returns the number of entites.</p>
+</div>
+<div class="section" id="projectallong-z-axis">
+<h2>11.4. ProjectAllong Z Axis :<a class="headerlink" href="#projectallong-z-axis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ProjectAlongZAxis</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;SampleFacesAreas_15.00.m_15.00.m&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">exec</span>
+</pre></div>
+</div>
+<p>Select &#8220;true&#8221; for &#8220;upwards&#8221; and &#8220;false&#8221; for &#8220;downwards&#8221;.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">EntitiesListing</span><span class="o">.</span><span class="n">allConstructionPointsInLayer</span><span class="p">(</span><span class="s2">&quot;ProjectAlongZAxis_upwards_SampleFacesAreas_15.00.m_15.00.m&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-layer-invisible">
+<h2>11.5. Make Layer Invisible :<a class="headerlink" href="#make-layer-invisible" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;vegetation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-layer">
+<h2>11.6. Remove Layer :<a class="headerlink" href="#remove-layer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;SampleFacesAreas_15.00.m_15.00.m&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-trees">
+<h2>11.7. Load Trees :<a class="headerlink" href="#load-trees" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">treeCompDef</span> <span class="o">=</span> <span class="n">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">definitions</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;~/tree.skp&quot;</span><span class="p">)</span>
+<span class="n">transforms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">EntitiesListing</span><span class="o">.</span><span class="n">allConstructionPointsInLayer</span><span class="p">(</span><span class="s1">&#39;ProjectAlongZAxis_upwards_SampleFacesAreas_15.00.m_15.00.m&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span>
+<span class="o">|</span><span class="n">p</span><span class="o">|</span> <span class="n">transforms</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">Geom</span><span class="p">::</span><span class="n">Transformation</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
+<span class="n">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">treeCompDef</span><span class="p">,</span> <span class="n">transforms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="n">transforms</span> <span class="o">=</span> <span class="n">nil</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-partial-3d-isovist">
+<h2>11.8. Create a Partial 3D Isovist :<a class="headerlink" href="#create-a-partial-3d-isovist" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pisov</span> <span class="o">=</span> <span class="n">PIsovist3D</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">aperture</span> <span class="o">=</span> <span class="n">Angle</span><span class="o">.</span><span class="n">toRadians</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">z0</span> <span class="o">=</span> <span class="mf">1.6</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">nbRays</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="n">transparency</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">spotColorName</span> <span class="o">=</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="n">tetrahedraColorName</span> <span class="o">=</span> <span class="s1">&#39;Yellow&#39;</span><span class="p">,</span> <span class="n">sketchOption</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iterating-over-a-point">
+<h2>11.9. Iterating over a Point :<a class="headerlink" href="#iterating-over-a-point" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">EntitiesListing</span><span class="o">.</span><span class="n">allConstructionPointsInLayer</span><span class="p">(</span><span class="s1">&#39;layerName&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">p</span><span class="o">|</span><span class="n">p</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span><span class="s2">&quot;sln_dictionary&quot;</span><span class="p">,</span> <span class="s1">&#39;motion_direction:Array&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">isov</span><span class="o">.</span><span class="n">execWithArgs</span><span class="p">(</span><span class="n">pickedPoint</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">pickedFace</span> <span class="o">=</span> <span class="n">p</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-line-at-a-point-pointing-downards">
+<h2>11.10. Create a line at a point, pointing downards:<a class="headerlink" href="#create-a-line-at-a-point-pointing-downards" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">EntitiesListing</span><span class="o">.</span><span class="n">allConstructionPointsInLayer</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">p</span><span class="o">|</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">add_edges</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">Geom</span><span class="p">::</span><span class="n">Point3d</span><span class="o">.</span><span class="n">new</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-3d-isovist">
+<h2>11.11. Create a 3D isovist:<a class="headerlink" href="#create-a-3d-isovist" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Iso3D</span> <span class="o">=</span> <span class="n">Isovist3D</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.</span><span class="n">m</span><span class="p">,</span> <span class="mf">20.</span><span class="n">m</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Yellow&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="partial-3d-isovist">
+<h2>11.12. Partial 3D Isovist<a class="headerlink" href="#partial-3d-isovist" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Piso3D</span> <span class="o">=</span> <span class="n">PIsovist3D</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Angle</span><span class="o">.</span><span class="n">toRadians</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="mf">0.</span><span class="n">M</span><span class="p">,</span> <span class="mf">20.</span><span class="n">m</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Yellow&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="view-factors.html" class="btn btn-neutral" title="10. View Factors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Laboratoire AAU/CRENAU.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
