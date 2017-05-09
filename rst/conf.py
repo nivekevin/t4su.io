@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.rubydomain',
+#    'sphinxcontrib.rubydomain',
 #	'sphinx.ext.mathjax',
 #	'rst2pdf.pdfbuilder'
 ]
