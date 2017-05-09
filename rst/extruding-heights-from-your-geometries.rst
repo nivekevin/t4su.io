@@ -107,9 +107,7 @@ lines.
 .. seealso::
    :ref:`loading-data`
 
-
- This case has an **extra step during the import** **process**
-: click on \ **Options.. **\ and change the \ **Build group(s) of entities** line to "**No group"**.\
+This case has an **extra step during the import** **process** : click on \ **Options.. **\ and change the \ **Build group(s) of entities** line to "**No group"**.\
 
 .. figure:: /T4SU_screenshots/import-isolines.png
    :class: aligncenter size-full
