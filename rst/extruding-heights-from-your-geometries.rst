@@ -107,6 +107,7 @@ lines.
 .. seealso::
    :ref:`loading-data`
 
+
  This case has an **extra step during the import** **process**
 : click on \ **Options.. **\ and change the \ **Build group(s) of entities** line to "**No group"**.\
 
